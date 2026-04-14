@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
@@ -118,12 +120,13 @@ New: ${urls[1]}
     const aiData = await geminiRes.json();
     console.log(aiData);
 
-    const comparison = aiData?.candidates?.[0]?.content?.parts?.[0]?.text;
-    const cleanJson =  comparison.replace(/```json/g, '').replace(/```/g, '');
-    const response = JSON.parse(cleanJson);
-    if (!response) throw new Error(aiData?.error?.message || "No response from Gemini");
+    const response = aiData?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const cleanJson =  response.replace(/```json/g, '').replace(/```/g, '');
+    // const comparison = JSON.parse(cleanJson);
+    const comparison = cleanJson;
+    if (!comparison) throw new Error(aiData?.error?.message || "No response from Gemini");
 
-    return NextResponse.json({ response, urls });
+    return NextResponse.json({ comparison, urls });
 
   } catch (error: any) {
     console.log(error);
