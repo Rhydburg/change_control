@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import ResultPreview from "../../components/ResultPreview";
 
 // ─── Types ────────────────────────────────────────────────
 type FileSlot = {
@@ -276,7 +277,7 @@ export default function Home() {
     formData.append("file2", slots[1].file);
 
     try {
-      const res = await fetch("/api/compare", { method: "POST", body: formData });
+      const res = await fetch("/api/extraction", { method: "POST", body: formData });
       const data = await res.json();
       if (data.error) throw new Error(data.error);
       setResult(data.comparison);
@@ -346,7 +347,7 @@ export default function Home() {
         style={{
           flex: 1,
           width: "100%",
-          maxWidth: 680,
+          maxWidth: "max-content",
           margin: "0 auto",
           padding: "2rem 1.25rem 4rem",
           display: "flex",
@@ -455,6 +456,7 @@ export default function Home() {
               <p style={{ fontSize: "0.8125rem", fontWeight: 600, color: "var(--text-secondary)", letterSpacing: "0.04em", textTransform: "uppercase" }}>
                 Step 2 — {error ? "Error" : "AI Analysis"}
               </p>
+              
               {result && (
                 <button
                   onClick={() => navigator.clipboard.writeText(result)}
@@ -491,7 +493,8 @@ export default function Home() {
                   ⚠️ {error}
                 </div>
               ) : (
-                <div className="result-block">{result}</div>
+                // <div className="result-block">{result}</div>
+                <ResultPreview result={result? result:"Empty"}/>
               )}
             </div>
           </div>

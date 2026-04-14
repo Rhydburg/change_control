@@ -74,44 +74,134 @@ export async function POST(req: Request) {
 // });
 
     // Gemini REST API
+    // gemini-2.5-flash (Working)
+    // gemma-3n-e2b-it (Working)
+    // gemini-2.5-pro (Working)
+    // gemini-2.5-flash-lite
+// const geminiRes = await fetch(
+//   `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${process.env.GEMINI_API_KEY}`,
+//   {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({
+//       contents: [
+//         {
+//           role: "user",
+//           parts: [
+//             {
+//               text: `
+// SYSTEM INSTRUCTION:
+// Download files from given URLS and extract text from them and return in HTML format only. 
+// Don't show any metaData. 
+// Only extracted text from downloaded files in HTML form. 
+// No dummy text or any text from your training data. 
+// If you can't read it then say so. 
+// URL1: ${urls[0]}
+// URL2: ${urls[1]}
+//               `,
+//             },
+//           ],
+//         },
+//       ],
+//     }),
+//   }
+// );
+// 1. Upload files first (resumable upload)
+const uploadRes1 = await fetch(
+  `https://generativelanguage.googleapis.com/upload/v1beta/files?key=${process.env.GEMINI_API_KEY}`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Goog-Upload-Protocol": "resumable",
+      "X-Goog-Upload-Command": "start",
+      "X-Goog-Upload-Header-Content-Length": file1.size.toString(),
+      "X-Goog-Upload-Header-Content-Type": file1.type,
+    },
+    body: JSON.stringify({
+      file: { displayName: `artwork1-${Date.now()}` }
+    })
+  }
+);
+
+// 2. Get upload URL from headers, upload bytes
+const uploadUrl1 = uploadRes1.headers.get("x-goog-upload-url");
+const file1Res = await fetch(uploadUrl1!, {
+  method: "POST",
+  headers: {
+    "Content-Length": file1.size.toString(),
+    "X-Goog-Upload-Offset": "0",
+    "X-Goog-Upload-Command": "upload, finalize"
+  },
+  body: file1.stream()
+});
+
+// 3. Wait for processing (poll if needed)
+const file1Data = await file1Res.json();
+const file1Uri = file1Data.file.uri;
+
+// Repeat for file2...
+
+
+const uploadRes2 = await fetch(
+  `https://generativelanguage.googleapis.com/upload/v1beta/files?key=${process.env.GEMINI_API_KEY}`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Goog-Upload-Protocol": "resumable",
+      "X-Goog-Upload-Command": "start",
+      "X-Goog-Upload-Header-Content-Length": file2.size.toString(),
+      "X-Goog-Upload-Header-Content-Type": file2.type,
+    },
+    body: JSON.stringify({
+      file: { displayName: `artwork2-${Date.now()}` }
+    })
+  }
+);
+
+// 2. Get upload URL from headers, upload bytes
+const uploadUrl2 = uploadRes2.headers.get("x-goog-upload-url");
+const file2Res = await fetch(uploadUrl2!, {
+  method: "POST",
+  headers: {
+    "Content-Length": file2.size.toString(),
+    "X-Goog-Upload-Offset": "0",
+    "X-Goog-Upload-Command": "upload, finalize"
+  },
+  body: file2.stream()
+});
+
+// 3. Wait for processing (poll if needed)
+const file2Data = await file2Res.json();
+const file2Uri = file2Data.file.uri;
+
+
+// 4. Use file URIs in generateContent
 const geminiRes = await fetch(
-  `https://generativelanguage.googleapis.com/v1beta/models/gemma-3n-e2b-it:generateContent?key=${process.env.GEMINI_API_KEY}`,
+  `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${process.env.GEMINI_API_KEY}`,
   {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      contents: [
-        {
-          role: "user",
-          parts: [
-            {
-              text: `
-SYSTEM INSTRUCTION:
-You are a pharmaceutical regulatory expert for artwork Change Control documentation.
- 
-You will receive ONE or TWO Public URLS of Artwork Files (images or PDFs of pharmaceutical artworks/labels):
-- File 1: Previous/Current artwork
-- File 2: New/Revised artwork (if provided)
- 
-Analyze and compare them. Return ONLY valid JSON — no markdown, no backticks, no explanation outside JSON.
- 
-{
-  "currentState": "Detailed paragraph describing the CURRENT/PREVIOUS artwork — what was missing, incorrect, or absent.",
-  "newSuggestedState": "Detailed paragraph describing the NEW/REVISED artwork — what was added, corrected, or updated.",
-  "scientificRationale": "Paragraph explaining the regulatory/quality scientific rationale for these changes."
-}
- 
-Be specific, precise, and use professional pharmaceutical regulatory language.
-USER TASK:
-Download and Compare these two pharmaceutical artworks:
-Previous: ${urls[0]}
-New: ${urls[1]}
-              `,
-            },
-          ],
-        },
-      ],
-    }),
+      contents: [{
+        parts: [
+          { text: "Extract data from these pharmaceutical artworks. No response from training data, no metaData. Only get data from what's inside the files in HTML format only " },
+          { 
+            file_data: { 
+              mime_type: file1.type, 
+              file_uri: file1Uri 
+            } 
+          },
+          { 
+            file_data: { 
+              mime_type: file2.type, 
+              file_uri: file2Uri 
+            } 
+          }
+        ]
+      }]
+    })
   }
 );
 
@@ -121,9 +211,11 @@ New: ${urls[1]}
     console.log(aiData);
 
     const response = aiData?.candidates?.[0]?.content?.parts?.[0]?.text;
+    console.log(response);
     const cleanJson =  response.replace(/```json/g, '').replace(/```/g, '');
+    const cleanJson1 =  response.replace(/```html/g, '').replace(/```/g, '');
     // const comparison = JSON.parse(cleanJson);
-    const comparison = cleanJson;
+    const comparison = cleanJson1;
     if (!comparison) throw new Error(aiData?.error?.message || "No response from Gemini");
 
     return NextResponse.json({ comparison, urls });
