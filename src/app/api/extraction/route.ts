@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const runtime = "nodejs";
 
 import { NextResponse } from "next/server";
@@ -113,7 +114,7 @@ export async function POST(req: Request) {
     await waitForGeminiFileActive(uploaded2.fileName);
 
     const geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: "POST",
         headers: {

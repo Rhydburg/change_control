@@ -281,6 +281,7 @@ export default function Home() {
       const data = await res.json();
       if (data.error) throw new Error(data.error);
       setResult(data.comparison);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError(err.message || "Something went wrong.");
     } finally {

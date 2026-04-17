@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const runtime = "nodejs";
 
 import { NextResponse } from "next/server";
@@ -179,7 +180,7 @@ const file2Uri = file2Data.file.uri;
 
 // 4. Use file URIs in generateContent
 const geminiRes = await fetch(
-  `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${process.env.GEMINI_API_KEY}`,
+  `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${process.env.GEMINI_API_KEY}`,
   {
     method: "POST",
     headers: { "Content-Type": "application/json" },
