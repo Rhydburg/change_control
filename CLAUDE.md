@@ -134,3 +134,4 @@ Formatting rules:
 
 
 If only one file is provided, extract visible data and present a review-style table with "Current State" and "Observation".
+

@@ -130,15 +130,28 @@ export async function POST(req: Request) {
 
 CRITICAL RULES:
 - Extract EXACTLY what is visible. Do NOT infer missing information.
-- Compare ONLY DIFFERENCES. DO NOT include matching/identical content.
+- Compare ONLY DIFFERENCES. Do NOT include matching/identical content.
 - Keep File 1 data in CURRENT column, File 2 data in NEW column ALWAYS.
 - ALL content must be in NUMBERED LIST format (1., 2., 3., etc.).
 - Use ONLY inline styles (style="...") - NO <style> tags.
-- If a field is identical in both files, DO NOT list it anywhere.
+- If a field is identical in both files, DO NOT list it anywhere - completely remove it.
 - If a field exists only in one file, show it only in that column and mark other as "Not mentioned".
 - ONE ROW ONLY for all data and differences combined.
-- Don't create any more rows then mentioned. 
-- Last Row contains all the differences.
+- Work with ALL languages - do not assume English only. Extract and compare text regardless of language.
+- Don't create any more rows than mentioned. 
+- Last Row contains all the differences organized by artwork component.
+
+**TEXT EXTRACTION RULES (CRITICAL):**
+- Extract ALL text visible in the artwork, including text that is rotated, upside-down, or at angles
+- When extracting rotated text:
+  a. Read the text as if it were rotated back to normal orientation
+  b. Normalize it - write it in standard reading format (left-to-right, top-to-bottom)
+  c. Example: If text is rotated 180°, read it correctly and write it normally in output
+  d. Example: If text is rotated 90°, read it correctly and write it normally in output
+- NEVER output garbled, mirrored, or reversed characters
+- Always present extracted text in clean, readable, normalized format
+- Do NOT skip rotated text - capture it but normalize the output
+- Never Mentions words like Rotated text, Upside-down text, etc. 
 
 INPUT: 2 pharmaceutical artwork files (Current/Previous and New/Revised)
 
@@ -147,41 +160,71 @@ OUTPUT STRUCTURE:
 MAIN COMPARISON TABLE (inline styled):
 
 ROW 1 (Title Row - full width):
-- Span all columns: "CL#### - DOCUMENT_CODE - PRODUCT NAME" Show document code, product name in this row.
+- Span all columns: "CL#### - DOCUMENT_CODE - PRODUCT NAME" (Show document code, product name in this row)
 
 ROW 2 (Column Headers):
 - Column 1: "Current / Previous State"
 - Column 2: "New / Revised State"  
 - Column 3: "Scientific Rationale"
 
-ROW 3 (Single Data Row - ALL differences combined):
-- Column 1: ONE paragraph with NUMBERED LIST of ALL differences from File 1
-  Include: all file details + all content differences that differ from File 2
-  Format: "1. [detail/difference]<br>2. [detail/difference]<br>3. [detail/difference]<br>..."
+ROW 3 (Single Data Row - ALL differences combined by component):
+- Column 1: ONE paragraph with NUMBERED LIST of ALL differences from File 1, ORGANIZED BY ARTWORK COMPONENT
+  Structure within column: 
+  [CARTON]<br>1. [difference]<br>2. [difference]<br><br>[FOIL]<br>1. [difference]<br>2. [difference]<br><br>[LABEL]<br>1. [difference]<br>2. [difference]<br><br>[PACKING INSERT]<br>1. [difference]<br>2. [difference]
+  Include only components that have differences
+  Include rotated text but normalized
   
-- Column 2: ONE paragraph with NUMBERED LIST of ALL differences from File 2
-  Include: all file details + all content differences that differ from File 1
-  Format: "1. [detail/difference]<br>2. [detail/difference]<br>3. [detail/difference]<br>..."
+- Column 2: ONE paragraph with NUMBERED LIST of ALL differences from File 2, ORGANIZED BY ARTWORK COMPONENT
+  Structure within column:
+  [CARTON]<br>1. [difference]<br>2. [difference]<br><br>[FOIL]<br>1. [difference]<br>2. [difference]<br><br>[LABEL]<br>1. [difference]<br>2. [difference]<br><br>[PACKING INSERT]<br>1. [difference]<br>2. [difference]
+  Include only components that have differences
+  Include rotated text but normalized
   
-- Column 3: Complete scientific rationale explaining all changes
+- Column 3: Complete scientific rationale explaining all changes, organized by component
+
+ARTWORK COMPONENTS TO IDENTIFY:
+- CARTON: Carton/Box/Packaging artwork details (product name, composition, dosage, manufacturer info, etc.) - may include rotated text
+- FOIL: Foil/Blister pack details (strip information, batch numbers, etc.) - may include rotated text
+- LABEL: Label details (text, colors, fonts, positioning) - may include rotated text
+- PACKING INSERT: Packing insert/Instructions for use details - may include rotated text
+- Other relevant components visible in artwork
 
 CRITICAL COMPARISON LOGIC:
-1. Read both files completely
-2. For EVERY field/detail, compare them
-3. If IDENTICAL → DO NOT include in either column
-4. If DIFFERENT → Include in both columns showing the difference
-5. If EXISTS ONLY IN FILE 1 → Show in Column 1 only, Column 2 = "Not mentioned"
-6. If EXISTS ONLY IN FILE 2 → Show in Column 2 only, Column 1 = "Not mentioned"
+1. Read both files completely - extract ALL text including rotated/angled text
+2. When you encounter rotated text:
+   - Mentally rotate/straighten it to understand what it says
+   - Write the normalized, readable version in the output
+   - Do NOT write it in the rotated/garbled format
+3. Identify which component (CARTON, FOIL, LABEL, PACKING INSERT, etc.) each detail belongs to
+4. For EVERY field/detail in each component:
+   a. If File 1 value = File 2 value (EXACT match including language/font/spacing) → DELETE from both columns (do not list)
+   b. If File 1 value ≠ File 2 value → KEEP in both columns (list both with the difference)
+   c. If field exists ONLY in File 1 → KEEP in Column 1 only, Column 2 = "Not mentioned"
+   d. If field exists ONLY in File 2 → KEEP in Column 2 only, Column 1 = "Not mentioned"
+5. Organize all differences by their artwork component
+6. Handle all languages equally - compare text character-by-character regardless of language
+7. Include rotated text in comparisons but always present it in normalized readable format
+
+COMPARISON FILTERING RULES:
+- Compare values EXACTLY: same text, same position, same formatting = IDENTICAL (remove)
+- Different text in any language = DIFFERENT (keep both)
+- Different formatting/color/position = DIFFERENT (keep both)
+- Different font/size = DIFFERENT (keep both)
+- Do NOT list identical items even if they appear in different languages - compare actual values
+- Rotated text that reads the same when normalized = IDENTICAL (remove)
+- Rotated text that reads differently when normalized = DIFFERENT (keep both)
 
 FORMATTING RULES:
-1. Use <br> to separate numbered items
-2. Format ONLY: "1. text<br>2. text<br>3. text"
-3. Do NOT use HTML lists (<ul> or <ol>)
-4. Do NOT use section breaks or multiple rows
+1. Use <br> to separate items and components
+2. Use double <br><br> to separate different components
+3. Format: "[COMPONENT_NAME]<br>1. text<br>2. text<br><br>[NEXT_COMPONENT]<br>1. text"
+4. Do NOT use HTML lists (<ul> or <ol>)
 5. All styling INLINE only
-6. Table with clear borders and padding
-7. EXACTLY 3 ROWS TOTAL: 1) Title, 2) Headers, 3) All Data
-8. Any Data from File 1 should not be mentioned in second column and any Data from File 2 should not be mentioned in first column. 
+6. Bold component names for clarity: <strong style="font-weight:bold;">CARTON</strong>
+7. Table with clear borders and padding
+8. EXACTLY 3 ROWS TOTAL: 1) Title, 2) Headers, 3) All Data
+9. Any Data from File 1 should not be mentioned in second column and any Data from File 2 should not be mentioned in first column.
+10. ALWAYS output text in clean, readable, normalized format - never show garbled characters
 
 OUTPUT: Return ONLY valid HTML. No markdown. No explanations. No metadata.
 `.trim(),
