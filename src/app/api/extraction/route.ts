@@ -141,6 +141,16 @@ CRITICAL RULES:
 - Don't create any more rows than mentioned. 
 - Last Row contains all the differences organized by artwork component.
 
+ALIGNMENT & NORMALIZATION RULES (CRITICAL):
+1. MASTER INVENTORY: Before generating the table, perform a 'Master Inventory Scan'. Identify every component present in EITHER file. You MUST provide a side-by-side comparison for every component in this master list. If a component is missing in one file, use the same header but mark its specific fields as 'Not mentioned'.
+2. COMPONENT NORMALIZATION: Normalize component names before comparison to ensure proper side-by-side alignment. 
+   - Map 'Mono Carton', 'Box', 'Outer Carton', or 'Outer Packaging' to [CARTON]. 
+   - Map 'Tube', 'Primary Label', or 'Sticker' to [LABEL]. 
+   - Map 'Alu-Alu', 'Blister', 'Aluminium Strip', or 'Foil' to [FOIL].
+   - Map 'Package Insert', 'Leaflet', or 'PIL' to [PACKING INSERT].
+3. TECHNICAL TABLE ANCHORS: Use the 'Component' field within embedded technical specification tables (e.g., the tabular data at the top/side of artworks) as the primary anchor for alignment. If a text block follows a table where Component='Tube', all subsequent text belongs to [LABEL].
+4. PAIRED FIELD SEARCH: For every unique field identified (e.g., 'Composition', 'Storage', 'Manufacturer', 'Item Code'), check BOTH files. If 'Storage' is in File 1, you MUST search File 2 for ANY storage-related text to pair it with, even if the phrasing has changed slightly. Bridge small naming gaps (e.g., "Item Code-Revision No." vs "Item Code Revision No." or "CL7321" vs "CL7322").
+
 **TEXT EXTRACTION RULES (CRITICAL):**
 - Extract ALL text visible in the artwork, including text that is rotated, upside-down, or at angles
 - When extracting rotated text:
@@ -195,13 +205,13 @@ CRITICAL COMPARISON LOGIC:
    - Mentally rotate/straighten it to understand what it says
    - Write the normalized, readable version in the output
    - Do NOT write it in the rotated/garbled format
-3. Identify which component (CARTON, FOIL, LABEL, PACKING INSERT, etc.) each detail belongs to
+3. Identify which component (CARTON, FOIL, LABEL, PACKING INSERT, etc.) each detail belongs to using the Normalization rules.
 4. For EVERY field/detail in each component:
    a. If File 1 value = File 2 value (EXACT match including language/font/spacing) → DELETE from both columns (do not list)
    b. If File 1 value ≠ File 2 value → KEEP in both columns (list both with the difference)
    c. If field exists ONLY in File 1 → KEEP in Column 1 only, Column 2 = "Not mentioned"
    d. If field exists ONLY in File 2 → KEEP in Column 2 only, Column 1 = "Not mentioned"
-5. Organize all differences by their artwork component
+5. Organize all differences by their normalized artwork component
 6. Handle all languages equally - compare text character-by-character regardless of language
 7. Include rotated text in comparisons but always present it in normalized readable format
 
@@ -220,7 +230,7 @@ FORMATTING RULES:
 3. Format: "[COMPONENT_NAME]<br>1. text<br>2. text<br><br>[NEXT_COMPONENT]<br>1. text"
 4. Do NOT use HTML lists (<ul> or <ol>)
 5. All styling INLINE only
-6. Bold component names for clarity: <strong style="font-weight:bold;">CARTON</strong>
+6. Bold component names for clarity: <strong style="font-weight:bold;">[CARTON]</strong>
 7. Table with clear borders and padding
 8. EXACTLY 3 ROWS TOTAL: 1) Title, 2) Headers, 3) All Data
 9. Any Data from File 1 should not be mentioned in second column and any Data from File 2 should not be mentioned in first column.
