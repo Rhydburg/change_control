@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import ResultPreview from "../../components/ResultPreview";
+import { WarningDropdown } from "./ocr-compare/page";
 
 // ─── Types ────────────────────────────────────────────────
 type FileSlot = {
@@ -291,7 +292,8 @@ export default function Home() {
 
   const bothReady = slots[0].file && slots[1].file;
 
-  return (
+  return (<>
+  
     <div
       style={{
         minHeight: "100svh",
@@ -516,6 +518,8 @@ export default function Home() {
       >
         ArtLens · Built with Next.js &amp; OpenRouter
       </footer>
+      
     </div>
+    <WarningDropdown /></>
   );
 }

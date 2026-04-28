@@ -1,0 +1,113 @@
+[2026-04-28T04:14:51.592Z] [INFO] === Session da89584b started at 2026-04-28T04:14:51.592Z ===
+[2026-04-28T04:14:51.675Z] [INFO] file1: "albendazole old A6226 1.pdf" | 12.68 MB
+[2026-04-28T04:14:51.675Z] [INFO] file2: "albendazole new Art-CommercialCDR-12676--v5.pdf" | 8.32 MB
+[2026-04-28T04:14:51.675Z] [INFO] Uploading both files to Gemini (parallel)…
+[2026-04-28T04:14:59.471Z] [INFO] file1 URI: https://generativelanguage.googleapis.com/v1beta/files/lnjtdc49w063
+[2026-04-28T04:14:59.472Z] [INFO] file2 URI: https://generativelanguage.googleapis.com/v1beta/files/63vf8sc7gyy8
+[2026-04-28T04:14:59.472Z] [INFO] Waiting for files to become ACTIVE…
+[2026-04-28T04:15:00.134Z] [INFO] file1 → ACTIVE
+[2026-04-28T04:15:00.215Z] [INFO] file2 → ACTIVE
+[2026-04-28T04:15:00.215Z] [INFO] Running single Gemini call (extract + compare)…
+[2026-04-28T04:16:10.566Z] [INFO] Gemini call done in 70.4s
+[2026-04-28T04:16:10.568Z] [INFO] 
+────────────────────────────────────────────────────────────
+COMPARISON RESULT
+────────────────────────────────────────────────────────────
+<!-- REASONING: The artwork revision includes updated item codes, changes to the composition statement (from per 1ml to per 5ml), addition of new warnings and country registrations, and a complete textual and formatting overhaul of the packing insert. -->
+<table style="width:100%; border-collapse:collapse; border:1px solid #000; font-family:Arial,sans-serif; font-size:13px;">
+  <tr style="background:#f0f0f0;">
+    <td colspan="3" style="padding:10px; font-weight:bold; border:1px solid #000;">CDR-12676 — ROPSP6465-02 — ALBENDAZOLE Rhydburg 200 mg/5 ml Oral Suspension</td>
+  </tr>
+  <tr style="background:#e8e8e8;">
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">Current / Previous State</td>
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">New / Revised State</td>
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:34%;">Scientific Rationale</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[TECH TABLE]</strong><br>
+      1. Item Code-Revision No. (Carton): R0PSP6465-01<br>
+      2. Change Control No. (If any) (Carton): CL8153<br>
+      3. Item Code-Revision No. (Label): R0PSP6464<br>
+      4. Item Code-Revision No. (Insert): ROPIP4296<br>
+      5. Printing Side (Insert): Front, Back<br>
+      <br>
+      <strong style="font-weight:bold;">[CARTON]</strong><br>
+      1. Composición:<br>Cada 1ml contiene:<br>Albendazol 40 mg<br>Excipientes c.s.p.<br>
+      2. Not mentioned<br>
+      3. Not mentioned<br>
+      4. Agítese antes de usar<br>
+      5. Honduras :<br>
+      6. Not mentioned<br>
+      7. Not mentioned<br>
+      <br>
+      <strong style="font-weight:bold;">[FOIL]</strong><br>
+      1. Composición:<br>Cada 1ml contiene:<br>Albendazol 40 mg<br>Excipientes c.s.p.<br>
+      2. Not mentioned<br>
+      3. Not mentioned<br>
+      4. AC1650V.3<br>
+      5. Honduras :<br>
+      6. Not mentioned<br>
+      7. Not mentioned<br>
+      8. Rhyburg<br>
+      9. R0PSP6464<br>
+      <br>
+      <strong style="font-weight:bold;">[PACKING INSERT]</strong><br>
+      1. [PACKING INSERT BODY CHANGED — compare manually]<br>
+      2. Composición: Cada 1ml contiene: Albendazol 40 mg Excipientes c.s.p<br>
+      3. Presentación: Caja de carton conteniendo Frasco PET de color ambar con 10 ml y 20 ml de suspensión oral con tapón ropp de color gris y vaso medidor de 5 ml con etiqueta adherida + Inserto.<br>
+      4. Fecha de Actualización: 03/2023<br>
+      5. Versión: AC1650V.3<br>
+      6. Item Code (footer): ROPIP4296<br>
+      7. Not mentioned
+    </td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[TECH TABLE]</strong><br>
+      1. Item Code-Revision No. (Carton): ROPSP6465-02<br>
+      2. Change Control No. (If any) (Carton): Not mentioned<br>
+      3. Item Code-Revision No. (Label): ROPSP6464-01<br>
+      4. Item Code-Revision No. (Insert): ROPIP4296-01<br>
+      5. Printing Side (Insert): Front<br>
+      <br>
+      <strong style="font-weight:bold;">[CARTON]</strong><br>
+      1. Composición:<br>Cada 5ml contiene:<br>Albendazol 200 mg<br>Excipients c.s.p.<br>Color: Amarillo atardecer supra<br>
+      2. Vía de administración: Oral.<br>
+      3. Aspartame: Contiene fenilalanina, precaución en pacientes fenilcetonúricos.<br>
+      4. Agítese antes de usar.<br>
+      5. Honduras: HN-M-0225-0006<br>
+      6. Panama :<br>
+      7. Costa Rica :<br>
+      <br>
+      <strong style="font-weight:bold;">[FOIL]</strong><br>
+      1. Composición:<br>Cada 5ml contiene:<br>Albendazol 200mg<br>Excipients c.s.p.<br>Color: Amarillo atardecer supra<br>
+      2. Via de administración: Oral<br>
+      3. Aspartame: Contiene fenilalanina, precaución en pacientes fenilcetonúricos.<br>
+      4. AC2543V.5<br>
+      5. Honduras: HN-M-0225-0006<br>
+      6. Panama<br>
+      7. Costa Rica<br>
+      8. Rhyeburg<br>
+      9. RO PSP6 464<br>
+      <br>
+      <strong style="font-weight:bold;">[PACKING INSERT]</strong><br>
+      1. [PACKING INSERT BODY CHANGED — compare manually]<br>
+      2. El principio activo es Albendazol. Cada 5 ml de ALBENDAZOL Rhydburg 200 mg/5 ml Suspensión oral contiene 200 mg de Albendazol.<br>Los demás componentes son: Azúcar refinada, Carmelosa sódica, Goma xantana, Hidroxibenzoato de metilo de sodio, Hidroxibenzoato de propilo de sodio, Polisorbato-80, Sílice coloidal anhidra, Ácido cítrico monohidratado, Polvo de aspartamo, EDTA de sodio, Benzoato de sodio, Color Amarillo Atardecer Supra, Sabor Naranja Dulce No. 1, Agua purificada.<br>
+      3. Presentación Comercial: Caja de cartón conteniendo frasco PET de color ámbar con 10 ml y 20 ml de suspensión oral con tapón ROPP de color gris y vaso medidor de 5 mL con etiqueta adherida + inserto.<br>
+      4. Fecha de revisión: Enero 2024<br>
+      5. Versión: Rwandafda-Anthel200mg/5ml-V2-Ene2024<br>
+      6. Item Code (footer): ROPIP4296-01<br>
+      7. Version Code (footer): AC2543V.5
+    </td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      The artwork changes are implemented to align with updated regulatory requirements and enhance clarity for healthcare professionals and patients.
+      <br><br>
+      <b>Technical Updates:</b> Item codes and revision numbers are updated across all components for internal tracking and version control. The Change Control Number from the previous version has been removed as it is no longer relevant.
+      <br><br>
+      <b>Carton &amp; Label:</b> The composition statement has been revised from a per 1ml basis (40 mg) to a per 5ml dose basis (200 mg) for better alignment with standard dosing instructions. Information on the route of administration, colorant, and an aspartame warning for patients with phenylketonuria have been added for safety and compliance. Registration numbers for Honduras, Panama, and Costa Rica have been added to reflect market authorizations in these new regions.
+      <br><br>
+      <b>Packing Insert:</b> The entire packing insert has been rewritten and reformatted into a more patient-friendly, structured format. This includes updating the composition to list all excipients, revising the presentation details, and updating the revision date and version number to reflect the latest approved product information. These changes improve readability and ensure the information is current and comprehensive.
+    </td>
+  </tr>
+</table>
+────────────────────────────────────────────────────────────
+[2026-04-28T04:16:10.569Z] [INFO] === Session da89584b complete ===

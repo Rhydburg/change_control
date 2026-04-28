@@ -1,0 +1,53 @@
+[2026-04-28T04:13:13.850Z] [INFO] === Session f6755dc9 started at 2026-04-28T04:13:13.850Z ===
+[2026-04-28T04:13:13.878Z] [INFO] file1: "A4791.pdf" | 3.76 MB
+[2026-04-28T04:13:13.878Z] [INFO] file2: "Adonac_Active.pdf" | 3.80 MB
+[2026-04-28T04:13:13.878Z] [INFO] Uploading both files to Gemini (parallel)…
+[2026-04-28T04:13:19.503Z] [INFO] file1 URI: https://generativelanguage.googleapis.com/v1beta/files/45mszen21xc8
+[2026-04-28T04:13:19.504Z] [INFO] file2 URI: https://generativelanguage.googleapis.com/v1beta/files/xuxkvcwllfm3
+[2026-04-28T04:13:19.504Z] [INFO] Waiting for files to become ACTIVE…
+[2026-04-28T04:13:20.136Z] [INFO] file2 → ACTIVE
+[2026-04-28T04:13:20.275Z] [INFO] file1 → ACTIVE
+[2026-04-28T04:13:20.275Z] [INFO] Running single Gemini call (extract + compare)…
+[2026-04-28T04:14:26.865Z] [INFO] Gemini call done in 66.6s
+[2026-04-28T04:14:26.869Z] [INFO] 
+────────────────────────────────────────────────────────────
+COMPARISON RESULT
+────────────────────────────────────────────────────────────
+<!-- REASONING: The preservative Benzyl Alcohol has been removed from the composition list on the carton, tube label, and packing insert. -->
+<table style="width:100%; border-collapse:collapse; border:1px solid #000; font-family:Arial,sans-serif; font-size:13px;">
+  <tr style="background:#f0f0f0;">
+    <td colspan="3" style="padding:10px; font-weight:bold; border:1px solid #000;">CL7321 — ROPSP4335-01 — Adonac Active</td>
+  </tr>
+  <tr style="background:#e8e8e8;">
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">Current / Previous State</td>
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">New / Revised State</td>
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:34%;">Scientific Rationale</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[CARTON]</strong><br>
+      1. In Composition list:<br>Benzyl Alcohol BP 1%w/w<br>(as preservative)<br>
+      <br>
+      <strong style="font-weight:bold;">[FOIL]</strong><br>
+      1. In Composition list:<br>Benzyl Alcohol BP 1%w/w<br>(as preservative)<br>
+      <br>
+      <strong style="font-weight:bold;">[PACKING INSERT]</strong><br>
+      1. In Composition list:<br>Benzyl Alcohol BP 1%w/w<br>(as preservative)
+    </td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[CARTON]</strong><br>
+      1. Not mentioned<br>
+      <br>
+      <strong style="font-weight:bold;">[FOIL]</strong><br>
+      1. Not mentioned<br>
+      <br>
+      <strong style="font-weight:bold;">[PACKING INSERT]</strong><br>
+      1. Not mentioned
+    </td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      Update to artwork to reflect the removal of the preservative Benzyl Alcohol from the product formulation. This change aligns the packaging components with the revised, approved formulation.
+    </td>
+  </tr>
+</table>
+────────────────────────────────────────────────────────────
+[2026-04-28T04:14:26.870Z] [INFO] === Session f6755dc9 complete ===

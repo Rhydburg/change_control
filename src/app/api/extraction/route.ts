@@ -7,10 +7,7 @@ import { createLogger } from "@/lib/logger";
 import { randomUUID } from "crypto";
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY!;
-// Flash: supports thinkingBudget:0 (thinking fully disabled) — fast, good for text extraction
-const FLASH_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${GEMINI_API_KEY}`;
-// Pro: thinking always on — accurate, used only for comparison
-const PRO_URL   = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${GEMINI_API_KEY}`;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -93,134 +90,97 @@ async function waitForGeminiFileActive(fileName: string) {
   throw new Error("Timed out waiting for Gemini file");
 }
 
-// ─── Gemini generate ──────────────────────────────────────────────────────────
-// Two variants:
-//   callGeminiExtract  — thinkingBudget:0 (thinking OFF, fast ~15s, no reasoning needed for copy-paste extraction)
-//   callGeminiCompare  — thinkingBudget default (thinking ON, slower, reasoning needed for accurate diff)
+// ─── Gemini call ──────────────────────────────────────────────────────────────
 
-async function callGeminiExtract(parts: object[]): Promise<string> {
-  const res = await withRetry(() => fetch(FLASH_URL, {
+async function callGemini(parts: object[]): Promise<string> {
+  const res = await withRetry(() => fetch(GEMINI_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      generationConfig: {
-        temperature: 0.0,
-        topK: 1,
-        topP: 0.1,
-        maxOutputTokens: 65536,
-        thinkingConfig: { thinkingBudget: 0 },  // Flash supports full disable — extraction needs no reasoning
-      },
+      generationConfig: { temperature: 0.0, topK: 1, topP: 0.1, maxOutputTokens: 65536 },
       contents: [{ role: "user", parts }],
     }),
-  }), "gemini-extract");
+  }), "gemini");
 
   const data = await res.json();
-  if (!res.ok) throw new Error(data?.error?.message || `Gemini extract failed (${res.status})`);
+  if (!res.ok) throw new Error(data?.error?.message || `Gemini failed (${res.status})`);
   const text: string = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
-  if (!text) throw new Error(data?.error?.message || "Gemini extract returned empty response");
+  if (!text) throw new Error(data?.error?.message || "Gemini returned empty response");
   return text;
 }
 
-async function callGeminiCompare(parts: object[]): Promise<string> {
-  const res = await withRetry(() => fetch(PRO_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      generationConfig: {
-        temperature: 0.0,
-        topK: 1,
-        topP: 0.1,
-        maxOutputTokens: 65536,
-        // thinking enabled (default) — comparison needs reasoning to detect subtle diffs
-      },
-      contents: [{ role: "user", parts }],
-    }),
-  }), "gemini-compare");
+// ─── Prompt ───────────────────────────────────────────────────────────────────
+// Single call: both PDFs provided simultaneously.
+// Incorporates all lessons from the multi-call experiment:
+//   • Fixed section template → consistent structure, no layout ambiguity
+//   • No color swatch entries → no [Color Block] false positives
+//   • Merge all side panels → no cross-panel "not mentioned" false positives
+//   • No summaries ever → verbatim diffs or [COMPARE MANUALLY] flag
+//   • [UNREADABLE] skip rule → no extraction gaps causing false differences
+//   • Cross-component reporting → same change listed per component
+//   • Item code rule → treat O and 0 as the same character to avoid false code diffs
 
-  const data = await res.json();
-  if (!res.ok) throw new Error(data?.error?.message || `Gemini compare failed (${res.status})`);
-  const text: string = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
-  if (!text) throw new Error(data?.error?.message || "Gemini compare returned empty response");
-  return text;
-}
+function buildPrompt(file1Name: string, file2Name: string): string {
+  return `You are a pharmaceutical regulatory expert performing an Artwork Change Control comparison.
 
+You are given TWO pharmaceutical artwork PDF files:
+- FILE 1 (CURRENT / PREVIOUS): ${file1Name}
+- FILE 2 (NEW / REVISED): ${file2Name}
 
-// ─── Extraction prompt ────────────────────────────────────────────────────────
-// Uses a FIXED TEMPLATE — the model fills in content under predefined section headers.
-// This ensures both files always produce identical section names for reliable comparison.
-// The model CANNOT create new sections or rename sections.
+══════════════════════════════════════════
+STEP 1 — EXTRACT TEXT FROM BOTH FILES
+══════════════════════════════════════════
 
-const EXTRACTION_PROMPT = `You are a pharmaceutical artwork text extractor.
+For EACH file, read ALL visible text and mentally organize it into this FIXED structure:
 
-Fill in the FIXED TEMPLATE below with ALL visible text from this pharmaceutical artwork PDF.
+  [SPEC TABLE: CARTON]       ← technical spec table for carton
+  [CARTON: FRONT PANEL]      ← front face text
+  [CARTON: BACK PANEL]       ← back face text
+  [CARTON: ALL SIDES]        ← ALL side panels + spine + top + bottom MERGED into one block
+  [SPEC TABLE: FOIL/LABEL]   ← technical spec table for foil/label/blister (if present)
+  [FOIL / LABEL]             ← foil strip / blister / primary label text (if present)
+  [SPEC TABLE: PACKING INSERT] ← packing insert header table (if present)
+  [PACKING INSERT: BODY]     ← packing insert full body text (if present)
 
-STRICT RULES — violating any of these is a critical failure:
-1. VERBATIM ONLY — copy every character exactly as printed. Do NOT rephrase, summarize, or paraphrase.
-2. DO NOT INVENT — never fill in text from pharmaceutical knowledge. Only write what is clearly visible.
-3. DO NOT SKIP — every visible character must appear somewhere in the output. Nothing may be omitted.
-4. UNREADABLE — for any text you cannot clearly read, write: [UNREADABLE: brief location description]
-5. NOT PRESENT — if an entire section does not exist in the document, write: [NOT PRESENT]
-6. SECTION NAMES — output EXACTLY the section headers shown in the template below, unchanged. Do NOT create new sections or rename sections.
-7. MERGE SIDE PANELS — all carton side panels, spine, top, bottom text goes under the single "CARTON: ALL SIDE + SPINE PANELS" section, regardless of how many physical faces exist.
-8. TABLE FORMAT — for specification tables, write each row as:   Field Name: Value
-9. COLOR SWATCHES — do NOT extract visual color swatches/blocks as separate rows. The spec table contains a "Pantone No." text row — extract only that row. If you see printed colored squares/rectangles alongside the Pantone names, those are visual swatches; ignore them as visual elements and do NOT create entries like "PANTONE 151 C: [Color Block]". Only the text Pantone No. row matters.
+EXTRACTION RULES (apply to BOTH files):
+1. VERBATIM — read every character exactly as printed. Do NOT rephrase or guess.
+2. MERGE SIDE PANELS — all carton side faces (regardless of how many) go under [CARTON: ALL SIDES].
+3. NO COLOR SWATCHES — extract the "Pantone No." text row from the spec table. Do NOT extract printed color blocks/squares as separate entries. No "[Color Block]" entries.
+4. ITEM CODES — when reading alphanumeric codes (e.g. ROPSP2218-01), the letter O and digit 0 look similar in pharmaceutical fonts. Read them as printed; do not substitute one for the other.
+5. UNREADABLE — if you genuinely cannot read a section, note it as [UNREADABLE: location] for that section.
+6. NOT PRESENT — if a section does not exist in that file, note it as [NOT PRESENT].
 
-FIXED TEMPLATE — fill in each section:
+══════════════════════════════════════════
+STEP 2 — COMPARE AND OUTPUT DIFFERENCES
+══════════════════════════════════════════
 
-=== SPEC TABLE: CARTON ===
-[Copy every row from the carton technical specification table verbatim as Field Name: Value]
+After reading both files, compare them section by section.
 
-=== CARTON: FRONT PANEL ===
-[All text visible on the carton front face, verbatim]
+COMPARISON RULES:
+1. ONLY DIFFERENCES — list only content that differs between the two files. Omit identical content.
+2. VERBATIM VALUES — copy the exact text that differs. Do NOT rephrase, summarize, or describe.
+3. [UNREADABLE] SKIP — if EITHER file has [UNREADABLE] for a field, SKIP that field entirely. Do not flag it as a difference.
+4. ABSENT vs UNREADABLE — if a field is clearly present in one file and clearly absent (not unreadable) in the other, mark the absent side as "Not mentioned".
+5. CROSS-COMPONENT — if the same change appears in multiple components (e.g. item code updated on both CARTON and FOIL), report it for EACH component separately.
+6. NO SUMMARIES EVER — even for long sections like PACKING INSERT BODY, quote only the specific lines that differ verbatim. Do NOT write a descriptive paragraph. 
+7. ITEM CODES — if two codes differ only by O/0 substitution (e.g. R0PSP vs ROPSP), treat them as IDENTICAL — do NOT flag as a difference.
+8. NO INVENTION — do NOT use pharmaceutical knowledge to fill in or interpret any value.
 
-=== CARTON: BACK PANEL ===
-[All text visible on the carton back face, verbatim]
+COMPONENT LABELS to use in output:
+  [TECH TABLE]         for spec tables
+  [CARTON]             for carton panels and sides
+  [FOIL]               for foil/blister/label
+  [PACKING INSERT]     for packing insert
 
-=== CARTON: ALL SIDE + SPINE PANELS ===
-[ALL text from ALL carton side panels, spine, top, bottom faces combined. Normalize rotated text to reading direction. Include everything.]
+══════════════════════════════════════════
+OUTPUT FORMAT
+══════════════════════════════════════════
 
-=== SPEC TABLE: FOIL / LABEL / BLISTER ===
-[Copy every row from the foil/label/blister technical specification table verbatim as Field Name: Value. If not present, write [NOT PRESENT]]
+Output exactly TWO things:
 
-=== FOIL / LABEL / BLISTER ===
-[All text visible on the foil strip, blister pack, or primary label — verbatim. Include rotated text normalized to reading direction. If not present, write [NOT PRESENT]]
+1. <!-- REASONING: one-line summary of all differences found -->
 
-=== SPEC TABLE: PACKING INSERT ===
-[Copy every row from the packing insert header/specification table verbatim as Field Name: Value. If not present, write [NOT PRESENT]]
-
-=== PACKING INSERT: BODY ===
-[All body text of the packing insert/leaflet verbatim. If not present, write [NOT PRESENT]]
-
-Output the filled template now.`.trim();
-
-// ─── Comparison prompt ────────────────────────────────────────────────────────
-
-function buildComparisonPrompt(text1: string, text2: string): string {
-  return `You are a strict pharmaceutical regulatory expert preparing an Artwork Change Control comparison.
-
-You will receive structured text extracted from two pharmaceutical artwork files (organized by section).
-
-STRICT ANTI-HALLUCINATION RULES:
-1. Use ONLY the extracted text provided below. Do NOT use pharmaceutical knowledge or training data.
-2. VERBATIM — copy field values exactly as they appear. Do NOT rephrase or summarize.
-3. ONLY DIFFERENCES — omit all content that is identical in both files.
-4. [UNREADABLE] rule — if EITHER file has [UNREADABLE] for a field, SKIP that field. Do NOT flag it as a difference.
-5. ABSENT field rule — if a field clearly exists in one file but is clearly absent in the other (not unreadable), mark the absent side as "Not mentioned".
-6. File 1 = CURRENT / PREVIOUS column always. File 2 = NEW / REVISED column always.
-7. Cross-component rule — if the same change appears in multiple components (e.g. item code changes on CARTON and FOIL), report it for EACH component separately.
-8. Do NOT invent, assume, or fill in any value not explicitly present in the extracted text.
-9. NO SUMMARIES EVER — even for very long sections (e.g. PACKING INSERT BODY), you MUST quote the specific lines that differ verbatim. Do NOT write a paragraph describing what changed. Do NOT write a summary of the content. If two long blocks of text are different but you cannot identify the specific line-level differences, write: [PACKING INSERT BODY CHANGED — compare manually] and move on. Never write a narrative summary.
-
-COMPONENT LABELS — normalize visible section names to these:
-- Technical Specification Table, Spec Table → [TECH TABLE]
-- Carton Front/Back/Side/Top/Bottom, Mono Carton → [CARTON]
-- Foil Strip, Alu-Alu, Blister, Aluminium Strip → [FOIL]
-- Label Front/Back, Primary Label, Tube → [LABEL]
-- Package Insert, Packing Insert, Leaflet → [PACKING INSERT]
-
-OUTPUT — exactly two things in this order:
-1. <!-- REASONING: one-line summary of all changes found -->
-2. The HTML table below — 3 rows only.
+2. HTML comparison table (3 rows, inline styles only, no <style> tags):
 
 <table style="width:100%; border-collapse:collapse; border:1px solid #000; font-family:Arial,sans-serif; font-size:13px;">
   <tr style="background:#f0f0f0;">
@@ -233,6 +193,9 @@ OUTPUT — exactly two things in this order:
   </tr>
   <tr>
     <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[TECH TABLE]</strong><br>
+      1. [verbatim old value]<br>
+      <br>
       <strong style="font-weight:bold;">[CARTON]</strong><br>
       1. [verbatim old value]<br>
       2. [verbatim old value]<br>
@@ -241,6 +204,9 @@ OUTPUT — exactly two things in this order:
       1. [verbatim old value]
     </td>
     <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[TECH TABLE]</strong><br>
+      1. [verbatim new value]<br>
+      <br>
       <strong style="font-weight:bold;">[CARTON]</strong><br>
       1. [verbatim new value]<br>
       2. [verbatim new value]<br>
@@ -255,22 +221,15 @@ OUTPUT — exactly two things in this order:
 </table>
 
 FORMATTING RULES:
-- ALL styling INLINE only. NO <style> tags. NO external CSS.
-- Use <br> to separate list items. Do NOT use <ul> or <ol>.
-- Number every difference within a component: 1., 2., 3.
-- Bold every component name: <strong style="font-weight:bold;">[COMPONENT]</strong>
-- Separate components with <br><br> inside a cell.
-- EXACTLY 3 ROWS TOTAL in the table.
+- ALL styling INLINE only. NO <style> tags.
+- Use <br> to separate items within a cell.
+- Number every difference: 1., 2., 3.
+- Bold every component label: <strong style="font-weight:bold;">[COMPONENT]</strong>
+- Blank line between components: <br><br>
+- EXACTLY 3 ROWS in the table.
+- NO markdown. Output raw HTML only.
 
-=== EXTRACTED TEXT — FILE 1 (Current/Previous) ===
-
-${text1}
-
-=== EXTRACTED TEXT — FILE 2 (New/Revised) ===
-
-${text2}
-
-Provide the HTML comparison output now.`.trim();
+Now read FILE 1 and FILE 2, then output the comparison.`.trim();
 }
 
 // ─── Route handler ────────────────────────────────────────────────────────────
@@ -296,7 +255,7 @@ export async function POST(req: Request) {
     log.info(`file2: "${file2.name}" | ${(file2.size / 1024 / 1024).toFixed(2)} MB`);
 
     // 2. Upload both files to Gemini (parallel)
-    log.info("Uploading both files to Gemini Files API (parallel)…");
+    log.info("Uploading both files to Gemini (parallel)…");
     const [up1, up2] = await Promise.all([
       uploadFileToGemini(file1),
       uploadFileToGemini(file2),
@@ -311,38 +270,22 @@ export async function POST(req: Request) {
       waitForGeminiFileActive(up2.fileName).then(() => log.info("file2 → ACTIVE")),
     ]);
 
-    // 4. Extract structured text from both files (parallel — thinking OFF for speed)
-    log.info("Extracting structured text (parallel, thinking disabled)…");
-    const t4 = Date.now();
-    const [text1, text2] = await Promise.all([
-      callGeminiExtract([
-        { text: EXTRACTION_PROMPT },
-        { file_data: { mime_type: up1.mimeType, file_uri: up1.fileUri } },
-      ]),
-      callGeminiExtract([
-        { text: EXTRACTION_PROMPT },
-        { file_data: { mime_type: up2.mimeType, file_uri: up2.fileUri } },
-      ]),
+    // 4. Single Gemini call — both files + full prompt
+    log.info("Running single Gemini call (extract + compare)…");
+    const t = Date.now();
+    const rawResult = await callGemini([
+      { text: buildPrompt(file1.name, file2.name) },
+      { file_data: { mime_type: up1.mimeType, file_uri: up1.fileUri } },
+      { file_data: { mime_type: up2.mimeType, file_uri: up2.fileUri } },
     ]);
-    log.info(`Extraction done in ${((Date.now() - t4) / 1000).toFixed(1)}s — file1: ${text1.length} chars | file2: ${text2.length} chars`);
+    log.info(`Gemini call done in ${((Date.now() - t) / 1000).toFixed(1)}s`);
 
-    // Log full extracted texts
-    log.info(`\n${"─".repeat(60)}\nEXTRACTED — FILE 1: ${file1.name}\n${"─".repeat(60)}\n${text1}\n${"─".repeat(60)}`);
-    log.info(`\n${"─".repeat(60)}\nEXTRACTED — FILE 2: ${file2.name}\n${"─".repeat(60)}\n${text2}\n${"─".repeat(60)}`);
-
-    // 5. Compare extracted texts (text-only, no PDFs — thinking ON for accuracy)
-    log.info("Running comparison on extracted texts (thinking enabled)…");
-    const t5 = Date.now();
-    const rawComparison = await callGeminiCompare([{ text: buildComparisonPrompt(text1, text2) }]);
-    log.info(`Comparison done in ${((Date.now() - t5) / 1000).toFixed(1)}s`);
-
-    const comparison = rawComparison
+    const comparison = rawResult
       .replace(/```html/gi, "")
       .replace(/```json/gi, "")
       .replace(/```/g, "")
       .trim();
 
-    // Log final comparison HTML
     log.info(`\n${"─".repeat(60)}\nCOMPARISON RESULT\n${"─".repeat(60)}\n${comparison}\n${"─".repeat(60)}`);
     log.info(`=== Session ${sessionId} complete ===`);
 

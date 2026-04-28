@@ -32,6 +32,113 @@ const XIcon = () => (
   </svg>
 );
 
+// ── Warning Dropdown ────────────────────────────────────────────────────────
+export const WARNINGS = [
+  { icon: "👁", label: "O vs 0 confusion", detail: "Letter O and digit 0 look identical in many pharmaceutical fonts. Item codes like ROPSP2218-01 may be extracted as R0PSP2218-01 and flagged as different when they are the same." },
+  { icon: "𝐈", label: "I vs 1, B vs 8, S vs 5", detail: "Visually similar characters in alphanumeric codes may be misread. Always verify item codes, batch numbers, and barcodes manually." },
+  { icon: "🖼", label: "Logo text misreading", detail: "Brand logos often use stylised, non-standard typography. The AI may misread logo text, add extra characters, or produce incorrect spellings (e.g. 'Rhyburg' instead of 'Rhydburg')." },
+  { icon: "🎨", label: "Colour swatch extraction", detail: "Printed Pantone colour swatches (physical coloured squares) may be extracted as text entries. Only the 'Pantone No.' text row in the spec table is reliable. Colour accuracy cannot be verified by vision models." },
+  { icon: "🔍", label: "Small / fine print", detail: "Text smaller than approximately 6pt on a scanned PDF may be marked [UNREADABLE]. This applies to foil strip fine print, footnotes, and barcode region text. These fields are skipped in comparison." },
+  { icon: "📄", label: "Packing insert body", detail: "The packing insert body text can be thousands of words. Line-level verbatim comparison across such large blocks is unreliable. If the body differs, the output may flag [COMPARE MANUALLY] — always review the full insert independently." },
+  { icon: "⚠", label: "Not a substitute for manual review", detail: "This tool assists in identifying differences but is NOT a certified regulatory review system. All output must be independently verified by a qualified person before submission or approval." },
+];
+
+export function WarningDropdown() {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ position: "fixed", bottom: 20, right: 20, zIndex: 9999, fontFamily: "'Inter', system-ui, sans-serif" }}>
+      {/* Panel */}
+      <div style={{
+        overflow: "hidden",
+        maxHeight: open ? 520 : 0,
+        transition: "max-height 0.35s cubic-bezier(0.4,0,0.2,1)",
+        marginBottom: open ? 8 : 0,
+      }}>
+        <div style={{
+          width: 340,
+          background: "rgba(28,20,8,0.97)",
+          border: "1px solid #92400e",
+          borderRadius: 12,
+          boxShadow: "0 8px 32px rgba(0,0,0,0.6)",
+          overflow: "hidden",
+        }}>
+          {/* Panel header */}
+          <div style={{ padding: "10px 14px", borderBottom: "1px solid #78350f", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+            <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#f59e0b", letterSpacing: "0.05em", textTransform: "uppercase" }}>Known AI Limitations</span>
+          </div>
+          {/* Items */}
+          <div style={{ maxHeight: 440, overflowY: "auto", padding: "6px 0" }}>
+            {WARNINGS.map((w, i) => (
+              <WarningItem key={i} icon={w.icon} label={w.label} detail={w.detail} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Toggle button */}
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.45rem",
+          background: open ? "rgba(120,53,15,0.9)" : "rgba(220, 197, 163, 0.95)",
+          border: "1px solid #92400e",
+          borderRadius: 10,
+          padding: "0.45rem 0.85rem",
+          color: "#3a2706ff",
+          fontSize: "0.75rem",
+          fontWeight: 700,
+          cursor: "pointer",
+          letterSpacing: "0.04em",
+          boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
+          transition: "background 0.2s",
+          float: "right",
+        }}
+      >
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+        AI Limitations
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth={2.5}
+          style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.25s" }}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+    </div>
+  );
+}
+
+export function WarningItem({ icon, label, detail }: { icon: string; label: string; detail: string }) {
+  const [expanded, setExpanded] = useState(false);
+  return (
+    <div
+      onClick={() => setExpanded(e => !e)}
+      style={{
+        padding: "8px 14px",
+        cursor: "pointer",
+        borderBottom: "1px solid rgba(120,53,15,0.3)",
+        transition: "background 0.15s",
+      }}
+      onMouseEnter={e => (e.currentTarget.style.background = "rgba(120,53,15,0.2)")}
+      onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <span style={{ fontSize: "0.85rem", flexShrink: 0 }}>{icon}</span>
+        <span style={{ fontSize: "0.73rem", fontWeight: 600, color: "#fcd34d", flex: 1 }}>{label}</span>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#92400e" strokeWidth={2.5}
+          style={{ transform: expanded ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s", flexShrink: 0 }}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+      {expanded && (
+        <p style={{ fontSize: "0.7rem", color: "#d97706", lineHeight: 1.55, marginTop: "0.4rem", paddingLeft: "1.5rem" }}>
+          {detail}
+        </p>
+      )}
+    </div>
+  );
+}
+
 // ── DropZone ───────────────────────────────────────────────────────────────
 function DropZone({
   label,
@@ -364,7 +471,10 @@ export default function OcrComparePage() {
           )}
 
         </main>
-      </div>
+      </div> {/* end outer page div */}
+
+      {/* Fixed warning dropdown — bottom right */}
+      <WarningDropdown />
     </>
   );
 }
