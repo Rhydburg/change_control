@@ -1,0 +1,11 @@
+[2026-04-28T03:16:01.981Z] [INFO] === Session f8fe82dd started at 2026-04-28T03:16:01.981Z ===
+[2026-04-28T03:16:02.013Z] [INFO] file1: "A4791.pdf" | 3.76 MB
+[2026-04-28T03:16:02.013Z] [INFO] file2: "Adonac_Active.pdf" | 3.80 MB
+[2026-04-28T03:16:02.014Z] [INFO] Uploading both files to Gemini Files API (parallel)…
+[2026-04-28T03:16:06.486Z] [INFO] file1 URI: https://generativelanguage.googleapis.com/v1beta/files/gm7nf456g25n
+[2026-04-28T03:16:06.486Z] [INFO] file2 URI: https://generativelanguage.googleapis.com/v1beta/files/a4ifmbtp0sag
+[2026-04-28T03:16:06.486Z] [INFO] Waiting for files to become ACTIVE…
+[2026-04-28T03:16:07.250Z] [INFO] file2 → ACTIVE
+[2026-04-28T03:16:07.250Z] [INFO] file1 → ACTIVE
+[2026-04-28T03:16:07.250Z] [INFO] Extracting structured text (parallel, thinking disabled)…
+[2026-04-28T03:16:07.380Z] [ERROR] Fatal: models/gemini-2.5-flash-preview-04-17 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.

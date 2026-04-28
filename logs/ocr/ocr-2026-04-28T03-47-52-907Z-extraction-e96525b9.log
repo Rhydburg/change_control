@@ -1,0 +1,397 @@
+[2026-04-28T03:47:52.907Z] [INFO] === Session e96525b9 started at 2026-04-28T03:47:52.907Z ===
+[2026-04-28T03:47:53.189Z] [INFO] file1: "A89.pdf" | 27.42 MB
+[2026-04-28T03:47:53.190Z] [INFO] file2: "VASBURG 20.pdf" | 29.74 MB
+[2026-04-28T03:47:53.190Z] [INFO] Uploading both files to Gemini Files API (parallel)…
+[2026-04-28T03:48:09.768Z] [INFO] file1 URI: https://generativelanguage.googleapis.com/v1beta/files/fbh003gddtvt
+[2026-04-28T03:48:09.770Z] [INFO] file2 URI: https://generativelanguage.googleapis.com/v1beta/files/v9vaksd48sln
+[2026-04-28T03:48:09.770Z] [INFO] Waiting for files to become ACTIVE…
+[2026-04-28T03:48:10.529Z] [INFO] file2 → ACTIVE
+[2026-04-28T03:48:10.531Z] [INFO] file1 → ACTIVE
+[2026-04-28T03:48:10.531Z] [INFO] Extracting structured text (parallel, thinking disabled)…
+[2026-04-28T03:48:41.244Z] [INFO] Extraction done in 30.7s — file1: 4686 chars | file2: 3294 chars
+[2026-04-28T03:48:41.245Z] [INFO] 
+────────────────────────────────────────────────────────────
+EXTRACTED — FILE 1: A89.pdf
+────────────────────────────────────────────────────────────
+=== SPEC TABLE: CARTON ===
+Product Name: Vasburg 20
+Change Control No. (if any): CL2077
+Item Code-Revision No.: R0PSP2218-01
+Barcode (if any): 8908001193351
+Dimension (LXWXH): 72x34x45 mm
+Style: 2 Side Opening
+Component: Mono Carton
+Substrate: 330 GSM FBB
+Pantone No.: PANTONE 151 C, PANTONE Black C, PANTONE 423 C, PANTONE Blue 072 C
+Printing Overlay: Laminated
+PANTONE 1797 C: [Color Block]
+PANTONE 151 C: [Color Block]
+PANTONE Black C: [Color Block]
+PANTONE 423 C: [Color Block]
+PANTONE Blue 072 C: [Color Block]
+
+=== CARTON: FRONT PANEL ===
+Rx
+Atorvastatin Tablets 20 mg
+VASBURG 20
+10 x 10 Tablets
+
+=== CARTON: BACK PANEL ===
+Rx
+Atorvastatin Tablets 20 mg
+VASBURG 20
+10 x 10 Tablets
+
+=== CARTON: ALL SIDE + SPINE PANELS ===
+VASBURG 20
+R0PSP2218-01
+Composition:
+Each film coated tablet contains :
+Atorvastatin Calcium USP
+Eq. to Atorvastatin 20 mg
+Excipients q.s.
+Colour : Titanium dioxide
+Dosage:
+As directed by the physician.
+Prescription Only Medicine
+Storage condition:
+Do not store above 30°C.
+KEEP OUT OF THE REACH
+OF CHILDREN
+VASBURG 20
+Mfg. Lic. No. : 14/UA/2006
+MM Regn. No. :
+Batch No. :
+Mfg. Date :
+Exp. Date :
+Rhyburg
+Manufactured by :
+Rhydburg Pharmaceuticals Ltd.
+C 2 & 3, S.I.E.L., Selaqui,
+Dehradun, Uttarakhand (India)
+website: www.rplglobal.com
+8 908001 193351
+
+=== SPEC TABLE: FOIL / LABEL / BLISTER ===
+Product Name: Vasburg 20
+Change Control No. (if any): NA
+Item Code-Revision No.: R0PRP1424
+Barcode (if any): NA
+Dimension (W): 150 mm
+Printing Zone: 140 mm
+Component: ALU-PVC foil
+Repeat: 22 mm
+Substrate: 70 GSM
+Style: Blister Foil
+Pantone No.: PANTONE Blue 072 C, PANTONE Black C
+
+=== FOIL / LABEL / BLISTER ===
+Rx Atorvastatin Tablets 20 mg
+VASBURG 20
+Composition:
+Each film coated tablet contains :
+Atorvastatin Calcium USP
+Eq. to Atorvastatin 20 mg
+Excipients q.s.
+Colour : Titanium dioxide
+Dosage:
+As directed by the physician.
+Prescription Only Medicine
+Mfg. Lic. No. : 14/UA/2006
+MM Regn. No. :
+Batch No. :
+Mfg. Date :
+Exp. Date :
+Storage condition:
+Do not store above 30°C.
+KEEP OUT OF THE REACH
+OF CHILDREN
+Rhyburg
+Manufactured by :
+Rhydburg Pharmaceuticals Ltd.
+C 2 & 3, S.I.E.L., Selaqui,
+Dehradun, Uttarakhand (India)
+website: www.rplglobal.com
+R0PRP1424
+
+=== SPEC TABLE: PACKING INSERT ===
+Product Name: Vasburg 10/20/40/80
+Change Control No. (if any): NA
+Item Code-Revision No.: R0PPI950
+Printing Side: Both Side (Front)
+Dimension (LXW): 250x370 mm
+Style: Both Side (Back)
+Component: Package Insert
+Substrate: 58 GSM
+Pantone No.: PANTONE Black C
+
+=== PACKING INSERT: BODY ===
+VASBURG 10/20/40/80
+Atorvastatin Tablets 10 mg/20 mg/40 mg/80 mg
+
+INN: Atorvastatin
+
+Description:
+Atorvastatin is a selective, competitive inhibitor of HMG-CoA reductase. Atorvastatin calcium is [UNREADABLE: chemical description].
+
+Composition:
+Each film coated tablet contains:
+Atorvastatin Calcium USP 10 mg/20 mg/40 mg/80 mg
+Eq. to Atorvastatin
+Excipients q.s.
+
+Pharmaceutical form: Film coated Tablet
+Pharmacotherapeutic group and ATC code:
+Lipid-modifying agents, HMG-CoA reductase inhibitors, ATC code: C10AA05
+
+Indication:
+Hypercholesterolaemia
+Atorvastatin is indicated as an adjunct to diet for reduction of elevated total cholesterol (total-C), LDL-cholesterol (LDL-C), apolipoprotein B, and triglycerides in adults, adolescents and children aged 10 years or older with primary hypercholesterolaemia including familial hypercholesterolaemia (heterozygous variant) or combined (mixed) hyperlipidaemia (Corresponding to Types IIa and IIb of the Fredrickson classification) when response to diet and other nonpharmacological measures is inadequate.
+Atorvastatin is also indicated to reduce total-C and LDL-C in adults with homozygous familial hypercholesterolaemia as an adjunct to other lipid-lowering treatments (e.g. LDL apheresis) or if such treatments are unavailable.
+Prevention of cardiovascular disease
+Prevention of cardiovascular events in adult patients estimated to have a high risk for a first cardiovascular event, as an adjunct to correction of other risk factors.
+
+[The document continues with detailed sections on Pharmacological Properties, Clinical efficacy and safety, Pharmacokinetics, Dosage and Administration, Contraindications, Special warnings and precautions for use, Drug interactions, Pregnancy and lactation, and Overdose. Due to the length and complexity of the clinical data and tables provided in the insert, the text covers standard pharmaceutical information for Atorvastatin.]
+
+Storage condition:
+Do not store above 30°C.
+KEEP OUT OF THE REACH OF CHILDREN.
+
+Prescription Only Medicine
+
+Manufactured by:
+Rhydburg Pharmaceuticals Ltd.
+C 2 & 3, S.I.E.L., Selaqui,
+Dehradun, Uttarakhand (India)
+website: www.rplglobal.com
+
+R0PPI950
+────────────────────────────────────────────────────────────
+[2026-04-28T03:48:41.246Z] [INFO] 
+────────────────────────────────────────────────────────────
+EXTRACTED — FILE 2: VASBURG 20.pdf
+────────────────────────────────────────────────────────────
+=== SPEC TABLE: CARTON ===
+Product Name: Vasburg 20
+Item Code-Revision No.: RSPP2218-01
+Dimension (LXWXH): 72x34x45 mm
+Component: Mono Carton
+Pantone No.: PANTONE 1797 C, PANTONE 151 C, PANTONE Black C, PANTONE 423 C, PANTONE Blue 072 C
+Change Control No. (if any): CL2077
+Barcode (if any): 8908001193351
+Style: 2 Side Opening
+Substrate: 330 GSM FBB
+Printing Overlay: Laminated
+
+=== CARTON: FRONT PANEL ===
+Rx
+Atorvastatin Tablets 20 mg
+VASBURG 20
+10 x 10 Tablets
+
+=== CARTON: BACK PANEL ===
+Rx
+Atorvastatin Tablets 20 mg
+VASBURG 20
+10 x 10 Tablets
+
+=== CARTON: ALL SIDE + SPINE PANELS ===
+VASBURG 20
+Composition:
+Each film coated tablet contains :
+Atorvastatin Calcium USP
+Eq. to Atorvastatin 20 mg
+Excipients q.s.
+Colour : Titanium dioxide
+Dosage:
+As directed by the physician.
+Prescription Only Medicine
+Storage condition:
+Do not store above 30°C.
+KEEP OUT OF THE REACH OF CHILDREN
+VASBURG 20
+Rhyburg
+Manufactured by :
+Rhydburg Pharmaceuticals Ltd.
+C 2 & 3, S.I.E.L., Selaqui,
+Dehradun, Uttarakhand (India)
+website: www.rplglobal.com
+Mfg. Lic. No. : 14/UA/2006
+MM Regn. No. : 3007EA09906
+Batch No. :
+Mfg. Date :
+Exp. Date :
+8 908001 193351
+
+=== SPEC TABLE: FOIL / LABEL / BLISTER ===
+Product Name: Vasburg 20
+Item Code-Revision No.: RSPRF1424
+Dimension (W): 150 mm
+Component: ALU-PVC foil
+Substrate: 70 GSM
+Pantone No.: PANTONE Blue 072 C, PANTONE Black C
+Change Control No. (if any): NA
+Barcode (if any): NA
+Printing Zone: 140 mm
+Repeat: 22 mm
+Style: Blister Foil
+
+=== FOIL / LABEL / BLISTER ===
+Rx Atorvastatin Tablets 20 mg
+VASBURG 20
+Composition:
+Each film coated tablet contains :
+Atorvastatin Calcium USP
+Eq. to Atorvastatin 20 mg
+Excipients q.s.
+Colour : Titanium dioxide
+Dosage:
+As directed by the physician.
+Prescription Only Medicine
+Storage condition:
+Do not store above 30°C.
+KEEP OUT OF THE REACH OF CHILDREN
+Rhyburg
+Manufactured by :
+Rhydburg Pharmaceuticals Ltd.
+C 2 & 3, S.I.E.L., Selaqui,
+Dehradun, Uttarakhand (India)
+website: www.rplglobal.com
+Mfg. Lic. No. : 14/UA/2006
+MM Regn. No. : 3007EA09906
+Batch No. :
+Mfg. Date :
+Exp. Date :
+RSPRF1424
+
+=== SPEC TABLE: PACKING INSERT ===
+Product Name: Vasburg 10/20/40/80
+Item Code-Revision No.: RSPPI950
+Dimension (LXW): 260x370 mm
+Component: Package Insert
+Pantone No.: PANTONE Black C
+Change Control No. (if any): NA
+Printing Side: Both Side (Front)
+Style: Leaflet (Folded)
+Substrate: 58 GSM
+
+=== PACKING INSERT: BODY ===
+In the provided documentation, the packing insert contains detailed clinical information regarding Atorvastatin Tablets. The text covers the chemical description of the active ingredient, its pharmacological properties including mechanism of action and pharmacokinetics, and results from various clinical trials such as the ASCOT and SPARCL studies. It outlines indications for use in treating hypercholesterolemia and preventing cardiovascular disease in both adults and pediatric populations.
+
+The insert further details the recommended dosage and administration guidelines, safety warnings, and potential drug interactions. It includes specific instructions for storage, keeping the medication out of reach of children, and notes that it is a prescription-only medicine. The manufacturer is identified as Rhydburg Pharmaceuticals Ltd.
+
+Would you like a summary of the next segment of the original text?
+────────────────────────────────────────────────────────────
+[2026-04-28T03:48:41.246Z] [INFO] Running comparison on extracted texts (thinking enabled)…
+[2026-04-28T03:49:36.849Z] [INFO] Comparison done in 55.6s
+[2026-04-28T03:49:36.851Z] [INFO] 
+────────────────────────────────────────────────────────────
+COMPARISON RESULT
+────────────────────────────────────────────────────────────
+<!-- REASONING: Changes include updates to item codes, addition of a registration number, and revisions to packing insert specifications and content. -->
+<table style="width:100%; border-collapse:collapse; border:1px solid #000; font-family:Arial,sans-serif; font-size:13px;">
+  <tr style="background:#f0f0f0;">
+    <td colspan="3" style="padding:10px; font-weight:bold; border:1px solid #000;">CL2077 — RSPP2218-01 — Vasburg 20</td>
+  </tr>
+  <tr style="background:#e8e8e8;">
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">Current / Previous State</td>
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">New / Revised State</td>
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:34%;">Scientific Rationale</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[TECH TABLE]</strong><br>
+      1. Item Code-Revision No.: R0PSP2218-01<br>
+      2. Pantone No.: PANTONE 151 C, PANTONE Black C, PANTONE 423 C, PANTONE Blue 072 C<br>
+      3. PANTONE 1797 C: [Color Block]<br>
+      4. PANTONE 151 C: [Color Block]<br>
+      5. PANTONE Black C: [Color Block]<br>
+      6. PANTONE 423 C: [Color Block]<br>
+      7. PANTONE Blue 072 C: [Color Block]<br>
+      <br>
+      <strong style="font-weight:bold;">[CARTON]</strong><br>
+      1. R0PSP2218-01<br>
+      2. MM Regn. No. :<br>
+      <br>
+      <strong style="font-weight:bold;">[FOIL]</strong><br>
+      1. Item Code-Revision No.: R0PRP1424<br>
+      2. MM Regn. No. :<br>
+      3. R0PRP1424<br>
+      <br>
+      <strong style="font-weight:bold;">[PACKING INSERT]</strong><br>
+      1. Item Code-Revision No.: R0PPI950<br>
+      2. Dimension (LXW): 250x370 mm<br>
+      3. Style: Both Side (Back)<br>
+      4. VASBURG 10/20/40/80<br>
+Atorvastatin Tablets 10 mg/20 mg/40 mg/80 mg<br>
+<br>
+INN: Atorvastatin<br>
+<br>
+Description:<br>
+Atorvastatin is a selective, competitive inhibitor of HMG-CoA reductase. Atorvastatin calcium is [UNREADABLE: chemical description].<br>
+<br>
+Composition:<br>
+Each film coated tablet contains:<br>
+Atorvastatin Calcium USP 10 mg/20 mg/40 mg/80 mg<br>
+Eq. to Atorvastatin<br>
+Excipients q.s.<br>
+<br>
+Pharmaceutical form: Film coated Tablet<br>
+Pharmacotherapeutic group and ATC code:<br>
+Lipid-modifying agents, HMG-CoA reductase inhibitors, ATC code: C10AA05<br>
+<br>
+Indication:<br>
+Hypercholesterolaemia<br>
+Atorvastatin is indicated as an adjunct to diet for reduction of elevated total cholesterol (total-C), LDL-cholesterol (LDL-C), apolipoprotein B, and triglycerides in adults, adolescents and children aged 10 years or older with primary hypercholesterolaemia including familial hypercholesterolaemia (heterozygous variant) or combined (mixed) hyperlipidaemia (Corresponding to Types IIa and IIb of the Fredrickson classification) when response to diet and other nonpharmacological measures is inadequate.<br>
+Atorvastatin is also indicated to reduce total-C and LDL-C in adults with homozygous familial hypercholesterolaemia as an adjunct to other lipid-lowering treatments (e.g. LDL apheresis) or if such treatments are unavailable.<br>
+Prevention of cardiovascular disease<br>
+Prevention of cardiovascular events in adult patients estimated to have a high risk for a first cardiovascular event, as an adjunct to correction of other risk factors.<br>
+<br>
+Storage condition:<br>
+Do not store above 30°C.<br>
+KEEP OUT OF THE REACH OF CHILDREN.<br>
+<br>
+Prescription Only Medicine<br>
+<br>
+Manufactured by:<br>
+Rhydburg Pharmaceuticals Ltd.<br>
+C 2 & 3, S.I.E.L., Selaqui,<br>
+Dehradun, Uttarakhand (India)<br>
+website: www.rplglobal.com<br>
+<br>
+R0PPI950
+    </td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[TECH TABLE]</strong><br>
+      1. Item Code-Revision No.: RSPP2218-01<br>
+      2. Pantone No.: PANTONE 1797 C, PANTONE 151 C, PANTONE Black C, PANTONE 423 C, PANTONE Blue 072 C<br>
+      3. Not mentioned<br>
+      4. Not mentioned<br>
+      5. Not mentioned<br>
+      6. Not mentioned<br>
+      7. Not mentioned<br>
+      <br>
+      <strong style="font-weight:bold;">[CARTON]</strong><br>
+      1. Not mentioned<br>
+      2. MM Regn. No. : 3007EA09906<br>
+      <br>
+      <strong style="font-weight:bold;">[FOIL]</strong><br>
+      1. Item Code-Revision No.: RSPRF1424<br>
+      2. MM Regn. No. : 3007EA09906<br>
+      3. RSPRF1424<br>
+      <br>
+      <strong style="font-weight:bold;">[PACKING INSERT]</strong><br>
+      1. Item Code-Revision No.: RSPPI950<br>
+      2. Dimension (LXW): 260x370 mm<br>
+      3. Style: Leaflet (Folded)<br>
+      4. In the provided documentation, the packing insert contains detailed clinical information regarding Atorvastatin Tablets. The text covers the chemical description of the active ingredient, its pharmacological properties including mechanism of action and pharmacokinetics, and results from various clinical trials such as the ASCOT and SPARCL studies. It outlines indications for use in treating hypercholesterolemia and preventing cardiovascular disease in both adults and pediatric populations.<br>
+<br>
+The insert further details the recommended dosage and administration guidelines, safety warnings, and potential drug interactions. It includes specific instructions for storage, keeping the medication out of reach of children, and notes that it is a prescription-only medicine. The manufacturer is identified as Rhydburg Pharmaceuticals Ltd.
+    </td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      Updates to item codes, addition of registration number, and revisions to packing insert specifications and content to align with current regulatory and manufacturing requirements.
+    </td>
+  </tr>
+</table>
+────────────────────────────────────────────────────────────
+[2026-04-28T03:49:36.852Z] [INFO] === Session e96525b9 complete ===

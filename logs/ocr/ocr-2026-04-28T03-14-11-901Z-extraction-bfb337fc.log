@@ -1,0 +1,11 @@
+[2026-04-28T03:14:11.901Z] [INFO] === Session bfb337fc started at 2026-04-28T03:14:11.901Z ===
+[2026-04-28T03:14:11.934Z] [INFO] file1: "A4791.pdf" | 3.76 MB
+[2026-04-28T03:14:11.934Z] [INFO] file2: "Adonac_Active.pdf" | 3.80 MB
+[2026-04-28T03:14:11.934Z] [INFO] Uploading both files to Gemini Files API (parallel)…
+[2026-04-28T03:14:18.036Z] [INFO] file1 URI: https://generativelanguage.googleapis.com/v1beta/files/py1khhf1rjw0
+[2026-04-28T03:14:18.036Z] [INFO] file2 URI: https://generativelanguage.googleapis.com/v1beta/files/hdhrou12h2eo
+[2026-04-28T03:14:18.037Z] [INFO] Waiting for files to become ACTIVE…
+[2026-04-28T03:14:18.773Z] [INFO] file1 → ACTIVE
+[2026-04-28T03:14:19.465Z] [INFO] file2 → ACTIVE
+[2026-04-28T03:14:19.466Z] [INFO] Extracting structured text (parallel, thinking disabled)…
+[2026-04-28T03:14:22.478Z] [ERROR] Fatal: Budget 0 is invalid. This model only works in thinking mode.

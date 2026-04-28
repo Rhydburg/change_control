@@ -13,7 +13,7 @@ export default function ResultPreview({ result }: Props) {
 
   return (
     <div
-      className="prose max-w-none"
+      className="max-w-none"
       dangerouslySetInnerHTML={{ __html: cleanHtml }}
     />
   );
