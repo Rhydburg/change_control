@@ -1,0 +1,113 @@
+[2026-04-29T03:30:52.301Z] [INFO] === Session 91648881 started at 2026-04-29T03:30:52.301Z ===
+[2026-04-29T03:30:52.419Z] [INFO] file1: "albendazole old A6226 1.pdf" | 12.68 MB
+[2026-04-29T03:30:52.419Z] [INFO] file2: "albendazole new Art-CommercialCDR-12676--v5.pdf" | 8.32 MB
+[2026-04-29T03:30:52.419Z] [INFO] Uploading both files to Gemini (parallel)…
+[2026-04-29T03:31:00.077Z] [INFO] file1 URI: https://generativelanguage.googleapis.com/v1beta/files/8gwrdyjf54d3
+[2026-04-29T03:31:00.078Z] [INFO] file2 URI: https://generativelanguage.googleapis.com/v1beta/files/osoybcvmz49f
+[2026-04-29T03:31:00.078Z] [INFO] Waiting for files to become ACTIVE…
+[2026-04-29T03:31:00.540Z] [INFO] file2 → ACTIVE
+[2026-04-29T03:31:00.931Z] [INFO] file1 → ACTIVE
+[2026-04-29T03:31:00.931Z] [INFO] Running single Gemini call (extract + compare)…
+[2026-04-29T03:32:48.200Z] [INFO] Gemini call done in 107.3s
+[2026-04-29T03:32:48.207Z] [INFO] Confidence summary — HIGH: 18 | MEDIUM: 3 | LOW (manual): 5
+[2026-04-29T03:32:48.208Z] [INFO] ⚠ 5 item(s) flagged LOW confidence — strict manual verification required
+[2026-04-29T03:32:48.210Z] [INFO] 
+────────────────────────────────────────────────────────────
+COMPARISON RESULT
+────────────────────────────────────────────────────────────
+<!-- REASONING: The artwork has been updated with new item/revision codes, new country registrations (Honduras, Panama, Costa Rica), an updated composition statement (per 5ml instead of per 1ml), and additional information regarding color, administration route, and excipients (Aspartame); the most significant change is the complete replacement of the technical monograph-style packing insert with a new Patient Information Leaflet (PIL). -->
+
+<table style="width:100%; border-collapse:collapse; border:1px solid #000; font-family:Arial,sans-serif; font-size:13px;">
+  <tr style="background:#f0f0f0;">
+    <td colspan="3" style="padding:10px; font-weight:bold; border:1px solid #000;">CL8153 — ROPSP6465-02 — ALBENDAZOLE Rhydburg 200 mg/5 ml Oral Suspension</td>
+  </tr>
+  <tr style="background:#e8e8e8;">
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">Current / Previous State</td>
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">New / Revised State</td>
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:34%;">Scientific Rationale</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[TECH TABLE]</strong><br>
+      1. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fee2e2;color:#991b1b;border:1px solid #dc2626;margin-right:5px;">VERIFY MANUALLY</span> Carton Item Code-Revision No.: R0PSP6465-01<br>
+      2. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Carton Change Control No. (If any): CL8153<br>
+      3. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fee2e2;color:#991b1b;border:1px solid #dc2626;margin-right:5px;">VERIFY MANUALLY</span> Label Item Code-Revision No.: R0PSP6464<br>
+      4. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fee2e2;color:#991b1b;border:1px solid #dc2626;margin-right:5px;">VERIFY MANUALLY</span> Packing Insert Item Code-Revision No.: ROPIP4296<br>
+      5. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fef3c7;color:#92400e;border:1px solid #d97706;margin-right:5px;">REVIEW</span> Packing Insert Printing Side (Back Page): Back<br>
+      <br>
+      <strong style="font-weight:bold;">[CARTON]</strong><br>
+      1. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Honduras :<br>
+      2. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Panama: Not mentioned<br>
+      3. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Costa Rica: Not mentioned<br>
+      4. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Composición: Cada 1ml contiene: Albendazol 40 mg Excipientes c.s.p.<br>
+      5. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Color: Not mentioned<br>
+      6. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Vía de administración: Not mentioned<br>
+      7. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Aspartame: Not mentioned<br>
+      8. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fef3c7;color:#92400e;border:1px solid #d97706;margin-right:5px;">REVIEW</span> Agítese antes de usar<br>
+      <br>
+      <strong style="font-weight:bold;">[FOIL]</strong><br>
+      1. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Composición: Cada 1ml contiene: Albendazol 40 mg Excipientes c.s.p.<br>
+      2. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Color: Not mentioned<br>
+      3. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Vía de administración: Not mentioned<br>
+      4. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Aspartame: Not mentioned<br>
+      5. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fef3c7;color:#92400e;border:1px solid #d97706;margin-right:5px;">REVIEW</span> Agítese antes de usar<br>
+      6. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fee2e2;color:#991b1b;border:1px solid #dc2626;margin-right:5px;">VERIFY MANUALLY</span> Code: AC1650V.3<br>
+      7. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Honduras :<br>
+      8. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Panama: Not mentioned<br>
+      9. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Costa Rica: Not mentioned<br>
+      <br>
+      <strong style="font-weight:bold;">[PACKING INSERT]</strong><br>
+      1. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Body Text Start: ALBENDAZOL Rhydburg 200 mg/5 ml Suspensión oral<br>
+      2. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fee2e2;color:#991b1b;border:1px solid #dc2626;margin-right:5px;">VERIFY MANUALLY</span> Footer Item Code: ROPIP4296<br>
+      3. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Footer Version Code: Not mentioned<br>
+      4. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Version / Date Information: Not mentioned<br>
+    </td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[TECH TABLE]</strong><br>
+      1. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fee2e2;color:#991b1b;border:1px solid #dc2626;margin-right:5px;">VERIFY MANUALLY</span> Carton Item Code-Revision No.: ROPSP6465-02<br>
+      2. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Carton Change Control No. (If any): Not mentioned<br>
+      3. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fee2e2;color:#991b1b;border:1px solid #dc2626;margin-right:5px;">VERIFY MANUALLY</span> Label Item Code-Revision No.: ROPSP6464-01<br>
+      4. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fee2e2;color:#991b1b;border:1px solid #dc2626;margin-right:5px;">VERIFY MANUALLY</span> Packing Insert Item Code-Revision No.: ROPIP4296-01<br>
+      5. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fef3c7;color:#92400e;border:1px solid #d97706;margin-right:5px;">REVIEW</span> Packing Insert Printing Side (Back Page): Front<br>
+      <br>
+      <strong style="font-weight:bold;">[CARTON]</strong><br>
+      1. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Honduras: HN-M-0225-0006<br>
+      2. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Panama :<br>
+      3. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Costa Rica :<br>
+      4. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Composición: Cada 5ml contiene: Albendazol 200 mg Excipients c.s.p.<br>
+      5. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Color: Amarillo atardecer supra<br>
+      6. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Vía de administración: Oral.<br>
+      7. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Aspartame: Contiene fenilalanina, precaución en pacientes fenilcetonúricos.<br>
+      8. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fef3c7;color:#92400e;border:1px solid #d97706;margin-right:5px;">REVIEW</span> Agítese antes de usar.<br>
+      <br>
+      <strong style="font-weight:bold;">[FOIL]</strong><br>
+      1. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Composición: Cada 5ml contiene: Albendazol 200mg Excipients c.s.p.<br>
+      2. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Color: Amarillo atardecer supra<br>
+      3. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Via de administración: Oral<br>
+      4. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Aspartame: Contiene fenilalanina, precaución en pacientes fenilcetonúricos.<br>
+      5. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fef3c7;color:#92400e;border:1px solid #d97706;margin-right:5px;">REVIEW</span> Agitese antes de usar<br>
+      6. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fee2e2;color:#991b1b;border:1px solid #dc2626;margin-right:5px;">VERIFY MANUALLY</span> Code: AC2543V.5<br>
+      7. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Honduras: HN-M-0225-0006<br>
+      8. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Panama<br>
+      9. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Costa Rica<br>
+      <br>
+      <strong style="font-weight:bold;">[PACKING INSERT]</strong><br>
+      1. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Body Text Start: 1. Qué es ALBENDAZOL Rhydburg 200 mg/5 ml Suspensión oral y para qué se utiliza<br><i>(Note: The entire body text has been replaced with a new Patient Information Leaflet format.)</i><br>
+      2. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#fee2e2;color:#991b1b;border:1px solid #dc2626;margin-right:5px;">VERIFY MANUALLY</span> Footer Item Code: ROPIP4296-01<br>
+      3. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Footer Version Code: AC2543V.5<br>
+      4. <span style="display:inline-block;padding:1px 7px;border-radius:4px;font-size:0.68rem;font-weight:700;background:#d1fae5;color:#065f46;border:1px solid #059669;margin-right:5px;">CONFIRMED</span> Version / Date Information: Fecha de revisión: Enero 2024<br>Versión: Rwandafda-Anthel200mg/5ml-V2-Ene2024<br>
+    </td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      The artwork change control reflects updates for regulatory compliance and market expansion. Key changes include:<br>
+      - Revision of item codes and internal document codes across all components.<br>
+      - Addition of registration numbers and country names for Honduras, Panama, and Costa Rica, indicating new market approvals.<br>
+      - The composition statement has been updated from mg/ml to mg/5ml for clarity and consistency with standard dosing units.<br>
+      - Additional product information (color, administration route, Aspartame warning) has been added to the carton and label for enhanced patient safety and information.<br>
+      - The packing insert has undergone a complete overhaul, transitioning from a technical monograph to a more user-friendly Patient Information Leaflet (PIL) format, including a new version number and revision date.
+    </td>
+  </tr>
+</table></td>
+  </tr>
+</table>
+────────────────────────────────────────────────────────────
+[2026-04-29T03:32:48.210Z] [INFO] === Session 91648881 complete ===

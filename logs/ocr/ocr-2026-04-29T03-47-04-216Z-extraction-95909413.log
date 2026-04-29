@@ -1,0 +1,160 @@
+[2026-04-29T03:47:04.218Z] [INFO] === Session 95909413 started at 2026-04-29T03:47:04.218Z ===
+[2026-04-29T03:47:04.320Z] [INFO] file1: "OMEPRAZOLE OLD A7193.pdf" | 26.11 MB
+[2026-04-29T03:47:04.320Z] [INFO] file2: "OMEPRAZOLE  NEW Art-CommercialCDR-16179--v2 1.pdf" | 10.20 MB
+[2026-04-29T03:47:04.320Z] [INFO] Uploading both files to Gemini (parallel)…
+[2026-04-29T03:47:15.416Z] [INFO] file1 URI: https://generativelanguage.googleapis.com/v1beta/files/y5fiamc1vgjm
+[2026-04-29T03:47:15.417Z] [INFO] file2 URI: https://generativelanguage.googleapis.com/v1beta/files/t6gjsaaretnt
+[2026-04-29T03:47:15.417Z] [INFO] Waiting for files to become ACTIVE…
+[2026-04-29T03:47:16.078Z] [INFO] file2 → ACTIVE
+[2026-04-29T03:47:16.178Z] [INFO] file1 → ACTIVE
+[2026-04-29T03:47:16.179Z] [INFO] Running single Gemini call (extract + compare)…
+[2026-04-29T03:50:31.972Z] [INFO] Gemini call done in 195.8s
+[2026-04-29T03:50:31.979Z] [INFO] Confidence summary — HIGH: 35 | MEDIUM: 1 | LOW (manual): 4
+[2026-04-29T03:50:31.979Z] [INFO] ⚠ 4 item(s) flagged LOW confidence — strict manual verification required
+[2026-04-29T03:50:31.979Z] [INFO] Overall confidence score: 89% (HIGH: 35, MEDIUM: 1, LOW: 4)
+[2026-04-29T03:50:31.982Z] [INFO] 
+────────────────────────────────────────────────────────────
+COMPARISON RESULT
+────────────────────────────────────────────────────────────
+<!-- REASONING: Updated product formulation description from 'Cápsulas gastro-resistentes' to 'Cápsulas con gránulos entéricos' across all components, updated barcode, updated commercial and hospital presentations in the insert, and removed item codes. -->
+
+<table style="width:100%; border-collapse:collapse; border:1px solid #000; font-family:Arial,sans-serif; font-size:13px;">
+  <tr style="background:#f0f0f0;">
+    <td colspan="3" style="padding:10px; font-weight:bold; border:1px solid #000;">CL#### — DOC CODE — PRODUCT NAME <span style="float:right;padding:2px 10px;border-radius:5px;background:#d1fae5;color:#065f46;border:1px solid #059669;font-size:0.78rem;font-weight:700;">89% confidence</span></td>
+  </tr>
+  <tr style="background:#e8e8e8;">
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">Current / Previous State</td>
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">New / Revised State</td>
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:34%;">Scientific Rationale</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[TECH TABLE]</strong><br>
+      1. Item Code-Revision No.: R0PSP6803<br>
+      2. Barcode (If any): 8908001224222<br>
+      3. Item Code-Revision No.: R0PRP4895<br>
+      4. Item Code-Revision No.: R0PIP4525<br>
+      5. Dimension (LXW): 148x210 mm<br><br>
+      <strong style="font-weight:bold;">[CARTON]</strong><br>
+      6. OMEPRAZOL Rhydburg 20 mg Cápsulas gastro-resistentes<br>
+      7. 100 Cápsulas gastro-resistentes<br>
+      8. Composición: Cada cápsula gastro-resistentes contiene:<br>
+      9. Barcode: 8908001224222<br>
+      10. Flap Code: AC2474V.1<br>
+      11. Flap Item Code: R0PSP6803<br><br>
+      <strong style="font-weight:bold;">[FOIL]</strong><br>
+      12. OMEPRAZOL Rhydburg 20 mg Cápsulas gastro-resistentes<br>
+      13. Composición: Cada cápsula gastro-resistentes contiene:<br>
+      14. Item Code: R0PRP4895<br><br>
+      <strong style="font-weight:bold;">[PACKING INSERT]</strong><br>
+      15. OMEPRAZOL Rhydburg 20 mg Cápsulas gastro-resistentes<br>
+      16. 1. Qué es OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes y para qué se utiliza<br>
+      17. OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes contiene el principio activo omeprazol.<br>
+      18. 2. Qué necesita saber antes de empezar a tomar OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes<br>
+      19. No tome OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes:<br>
+      20. No tome OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes si se encuentra entre alguno de los casos anteriores. Si no está seguro, hable con su médico o farmacéutico antes de tomar OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes.<br>
+      21. Consulte a su médico o farmacéutico antes de empezar a tomar OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes.<br>
+      22. Se han notificado en relación con el tratamiento con OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes reacciones adversas cutáneas graves que incluyen el síndrome de Stevens-Johnson, necrólisis epidérmica tóxica, reacción a fármaco con eosinofilia y síntomas sistémicos (DRESS) y pustulosis exantemática generalizada aguda (PEGA).<br>
+      23. Deje de tomar OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes y consulte al médico inmediatamente si experimenta alguno de estos síntomas relacionados con las reacciones adversas cutáneas graves descritas en la sección 4.<br>
+      24. OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes puede ocultar los síntomas de otras enfermedades. Por tanto, si experimenta cualquiera de las siguientes dolencias antes de empezar a tomar OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes o durante el tratamiento, consulte inmediatamente con su médico:<br>
+      25. Si alguna vez ha tenido una reacción en la piel después del tratamiento con un medicamento similar a OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes para reducir la acidez de estómago.<br>
+      26. Si sufre una erupción cutánea, especialmente en zonas de la piel expuestas al sol, consulte a su médico lo antes posible, ya que puede ser necesario interrumpir el tratamiento con OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes.<br>
+      27. Otros medicamentos y OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes<br>
+      28. Esto se debe a que OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes puede afectar al mecanismo de acción de algunos medicamentos y algunos medicamentos pueden afectar a OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes.<br>
+      29. No tome OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes si está tomando un medicamento que contenga nelfinavir (usado para tratar la infección por VIH).<br>
+      30. Fenitoína (usada en la epilepsia). Si está tomando fenitoína, su médico tendrá que mantenerle controlado cuando empiece o termine el tratamiento con OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes.<br>
+      31. Medicamentos empleados para impedir la formación de coágulos de sangre, como warfarina u otros antagonistas de la vitamina K. Su médico tendrá que mantenerle controlado cuando empiece o termine el tratamiento con OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes<br>
+      32. Metotrexato (medicamento de quimioterapia usado en dosis altas para tratar el cáncer) - si está tomando una dosis alta de metotrexato, su médico tendrá que parar temporalmente el tratamiento con OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes.<br>
+      33. Toma de OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes con alimentos y bebidas<br>
+      34. Su médico decidirá si puede tomar OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes si está en periodo de lactancia.<br>
+      35. No es probable que OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes afecte a su capacidad para conducir o utilizar herramientas o máquinas.<br>
+      36. 3. Cómo tomar OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes<br>
+      37. Si toma más OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes del que debe<br>
+      38. Si olvidó tomar OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes<br>
+      39. Si interrumpe el tratamiento con OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes<br>
+      40. Si aprecia alguno de los siguientes efectos adversos raros pero graves, deje de tomar OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes y consulte al médico inmediatamente:<br>
+      41. Frecuencia no conocida (no puede estimarse a partir de los datos disponibles): Inflamación en el intestino (que provoca diarrea), Si usted está en tratamiento con OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes durante más de tres meses, es posible que sus niveles de magnesio en la sangre disminuyan.<br>
+      42. En casos muy raros OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes puede afectar a los glóbulos blancos de la sangre y provocar una inmunodeficiencia.<br>
+      43. 5. Conservación de OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes<br>
+      44. Composición de OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes<br>
+      45. • El principio activo es Omeprazol. Cada capsula de OMEPRAZOL Rhydburg 20 mg cápsulas gastro-resistentes contiene 20 mg de Omeprazol.<br>
+      46. Presentación Comercial: Caja conteniendo 10, 100 y 200 cápsulas en blister Alu/PVC + inserto, caja conteniendo 10, 100 y 200capsulas en tira de aluminio/aluminio + inserto.<br>
+      47. Presentación Hospitalario: Caja conteniendo 100 y 200 cápsulas en blister Alu/PVC + inserto, caja conteniendo 100 y 200 capsulas en tira de aluminio/aluminio + inserto.<br>
+      48. Bottom code: AC2474V.1<br>
+      49. Bottom code: R0PIP4525
+    </td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[TECH TABLE]</strong><br>
+      1. Item Code-Revision No.: Not mentioned<br>
+      2. Barcode (If any): 8908001224208<br>
+      3. Item Code-Revision No.: Not mentioned<br>
+      4. Item Code-Revision No.: Not mentioned<br>
+      5. Dimension (LXW): 210x148mm<br><br>
+      <strong style="font-weight:bold;">[CARTON]</strong><br>
+      6. OMEPRAZOL Rhydburg 20 mg Cápsulas con gránulos entéricos<br>
+      7. 100 Cápsulas con gránulos entéricos<br>
+      8. Composición: Cada cápsula con gránulo entérico contiene:<br>
+      9. Barcode: 8908001224208<br>
+      10. Flap Code: AC2558V.2<br>
+      11. Flap Item Code: Not mentioned<br><br>
+      <strong style="font-weight:bold;">[FOIL]</strong><br>
+      12. OMEPRAZOL Rhydburg 20 mg Cápsulas con gránulos entéricos<br>
+      13. Composición: Cada cápsula con gránulo entérico contiene:<br>
+      14. Item Code: Not mentioned<br><br>
+      <strong style="font-weight:bold;">[PACKING INSERT]</strong><br>
+      15. OMEPRAZOL Rhydburg 20 mg Cápsulas con gránulos entéricos<br>
+      16. 1. Qué es OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos y para qué se utiliza<br>
+      17. OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos contiene el principio activo omeprazol.<br>
+      18. 2. Qué necesita saber antes de empezar a tomar OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos<br>
+      19. No tome OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos:<br>
+      20. No tome OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos si se encuentra entre alguno de los casos anteriores. Si no está seguro, hable con su médico o farmacéutico antes de tomar OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos.<br>
+      21. Consulte a su médico o farmacéutico antes de empezar a tomar OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos.<br>
+      22. Se han notificado en relación con el tratamiento con OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos reacciones adversas cutáneas graves que incluyen el síndrome de Stevens-Johnson, necrólisis epidérmica tóxica, reacción a fármaco con eosinofilia y síntomas sistémicos (DRESS) y pustulosis exantemática generalizada aguda (PEGA).<br>
+      23. Deje de tomar OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos y consulte al médico inmediatamente si experimenta alguno de estos síntomas relacionados con las reacciones adversas cutáneas graves descritas en la sección 4.<br>
+      24. OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos puede ocultar los síntomas de otras enfermedades. Por tanto, si experimenta cualquiera de las siguientes dolencias antes de empezar a tomar OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos o durante el tratamiento, consulte inmediatamente con su médico:<br>
+      25. Si alguna vez ha tenido una reacción en la piel después del tratamiento con un medicamento similar a OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos para reducir la acidez de estómago.<br>
+      26. Si sufre una erupción cutánea, especialmente en zonas de la piel expuestas al sol, consulte a su médico lo antes posible, ya que puede ser necesario interrumpir el tratamiento con OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos.<br>
+      27. Otros medicamentos y OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos<br>
+      28. Esto se debe a que OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos puede afectar al mecanismo de acción de algunos medicamentos y algunos medicamentos pueden afectar a OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos .<br>
+      29. No tome OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos si está tomando un medicamento que contenga nelfinavir (usado para tratar la infección por VIH).<br>
+      30. Fenitoína (usada en la epilepsia). Si está tomando fenitoína, su médico tendrá que mantenerle controlado cuando empiece o termine el tratamiento con OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos.<br>
+      31. Medicamentos empleados para impedir la formación de coágulos de sangre, como warfarina u otros antagonistas de la vitamina K. Su médico tendrá que mantenerle controlado cuando empiece o termine el tratamiento con OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos<br>
+      32. Metotrexato (medicamento de quimioterapia usado en dosis altas para tratar el cáncer) - si está tomando una dosis alta de metotrexato, su médico tendrá que parar temporalmente el tratamiento con OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos .<br>
+      33. Toma de OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos con alimentos y bebidas<br>
+      34. Su médico decidirá si puede tomar OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos si está en periodo de lactancia.<br>
+      35. No es probable que OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos afecte a su capacidad para conducir o utilizar herramientas o máquinas.<br>
+      36. 3. Cómo tomar OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos<br>
+      37. Si toma más OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos del que debe<br>
+      38. Si olvidó tomar OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos<br>
+      39. Si interrumpe el tratamiento con OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos<br>
+      40. Si aprecia alguno de los siguientes efectos adversos raros pero graves, deje de tomar OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos y consulte al médico inmediatamente:<br>
+      41. Frecuencia no conocida (no puede estimarse a partir de los datos disponibles): Inflamación en el intestino (que provoca diarrea), Si usted está en tratamiento con OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos durante más de tres meses, es posible que sus niveles de magnesio en la sangre disminuyan.<br>
+      42. En casos muy raros OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos puede afectar a los glóbulos blancos de la sangre y provocar una inmunodeficiencia.<br>
+      43. 5. Conservación de OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos<br>
+      44. Composición de OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos<br>
+      45. • El principio activo es Omeprazol. Cada capsula de OMEPRAZOL Rhydburg 20 mg Capsulas con gránulos entéricos contiene 20 mg de Omeprazol.<br>
+      46. Presentación Comercial: Caja de cartón conteniendo 10, 30, 60, 100 cápsulas con gránulos entéricos empacadas en blíster Alu/Alu y blíster Alu/PVC + inserto.<br>Caja de cartón conteniendo 10 cápsulas con gránulos entéricos empacadas en tiras Alu/Alu + inserto.<br>
+      47. Presentación Hospitalario: Caja de cartón conteniendo 100 y 200 cápsulas con gránulos entéricos empacadas en tiras Alu/Alu, blíster Alu/Alu y blíster Alu/PVC + inserto.<br>
+      48. Bottom code: AC2558V.2<br>
+      49. Bottom code: Not mentioned
+    </td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      Update of product formulation description from "gastro-resistentes" to "con gránulos entéricos" across all components to align with updated regulatory registration. Update of barcode and document control codes. Removal of item codes. Update of commercial and hospital presentation details in the packing insert.
+    </td>
+  </tr>
+  <tr style="background:#fdf4ff;">
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[DESIGN / VISUAL]</strong><br>
+      [NO DESIGN DIFFERENCES OBSERVED]
+    </td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+      <strong style="font-weight:bold;">[DESIGN / VISUAL]</strong><br>
+      [NO DESIGN DIFFERENCES OBSERVED]
+    </td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top; font-style:italic; color:#6b21a8; font-size:0.8rem;">
+      Design differences are AI-observed from visual inspection. Colour accuracy and subtle layout shifts may not be fully reliable — manual visual verification recommended.
+    </td>
+  </tr>
+</table>
+────────────────────────────────────────────────────────────
+[2026-04-29T03:50:31.983Z] [INFO] === Session 95909413 complete ===
