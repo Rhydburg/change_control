@@ -109,16 +109,6 @@ async function callGemini(parts: object[]): Promise<string> {
   return text;
 }
 
-// ─── Prompt ───────────────────────────────────────────────────────────────────
-// Single call: both PDFs provided simultaneously.
-// Incorporates all lessons from the multi-call experiment:
-//   • Fixed section template → consistent structure, no layout ambiguity
-//   • No color swatch entries → no [Color Block] false positives
-//   • Merge all side panels → no cross-panel "not mentioned" false positives
-//   • No summaries ever → verbatim diffs or [COMPARE MANUALLY] flag
-//   • [UNREADABLE] skip rule → no extraction gaps causing false differences
-//   • Cross-component reporting → same change listed per component
-//   • Item code rule → treat O and 0 as the same character to avoid false code diffs
 
 function buildPrompt(file1Name: string, file2Name: string): string {
   return `You are a pharmaceutical regulatory expert performing an Artwork Change Control comparison.
@@ -194,7 +184,7 @@ Output this count as a comment (it will be stripped before display):
 STEP 4 — DESIGN / VISUAL DIFFERENCES
 ══════════════════════════════════════════
 
-Look at BOTH files visually (not just the text) and identify any DESIGN or VISUAL differences:
+Look at BOTH files visually (not just the text) and LIST any DESIGN or VISUAL differences:
 
   • PANTONE / COLOUR — Has a colour scheme changed? Are Pantone references different on the artwork itself (not just in the spec table)?
   • LOGO — Is the company/brand logo visually different? Different version, position, size, or style?
@@ -203,7 +193,8 @@ Look at BOTH files visually (not just the text) and identify any DESIGN or VISUA
   • BACKGROUND — Has the background colour or pattern changed?
   • FONT STYLE — Is there a visible font weight or style change (e.g., from regular to bold) on any prominent text?
 
-If you observe NO design differences, output exactly: [NO DESIGN DIFFERENCES OBSERVED]
+Else you observe NO design differences, output exactly: [NO DESIGN DIFFERENCES OBSERVED]
+
 Do NOT guess or invent. Only report what is clearly visible.
 
 ══════════════════════════════════════════

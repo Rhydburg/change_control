@@ -1,0 +1,27 @@
+[2026-04-29T04:17:09.610Z] [INFO] === Session 3aa3ae94 started at 2026-04-29T04:17:09.610Z ===
+[2026-04-29T04:17:09.717Z] [INFO] file1: "OMEPRAZOLE OLD A7193.pdf" | 26.11 MB
+[2026-04-29T04:17:09.718Z] [INFO] file2: "OMEPRAZOLE  NEW Art-CommercialCDR-16179--v2 1.pdf" | 10.20 MB
+[2026-04-29T04:17:09.718Z] [INFO] Uploading both files to Gemini (parallel)…
+[2026-04-29T04:17:09.950Z] [ERROR] Fatal: Upload start failed: {
+  "error": {
+    "code": 400,
+    "message": "API Key not found. Please pass a valid API key.",
+    "status": "INVALID_ARGUMENT",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "API_KEY_INVALID",
+        "domain": "googleapis.com",
+        "metadata": {
+          "service": "generativelanguage.googleapis.com"
+        }
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+        "locale": "en-US",
+        "message": "API Key not found. Please pass a valid API key."
+      }
+    ]
+  }
+}
+
