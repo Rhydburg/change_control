@@ -1,0 +1,30 @@
+[2026-05-28T07:49:56.034Z] [INFO] === OCR Extract Session a6462ad7 started ===
+[2026-05-28T07:49:56.034Z] [INFO] Request received at 2026-05-28T07:49:56.034Z
+[2026-05-28T07:49:56.034Z] [STEP] STEP 1 — Parsing multipart form data
+[2026-05-28T07:49:56.039Z] [INFO] file1: "Screenshot 2026-05-28 at 12.09.25 PM.png" size=0.31 MB type=image/png
+[2026-05-28T07:49:56.039Z] [INFO] file2: "Screenshot 2026-05-28 at 12.09.14 PM.png" size=0.39 MB type=image/png
+[2026-05-28T07:49:56.039Z] [STEP] STEP 1 DONE — Files parsed successfully
+[2026-05-28T07:49:56.039Z] [STEP] STEP 2 — Reading files into memory buffers
+[2026-05-28T07:49:56.040Z] [INFO] Buffers ready — buf1: 329278 bytes, buf2: 407551 bytes
+[2026-05-28T07:49:56.040Z] [STEP] STEP 2 DONE — File buffers ready
+[2026-05-28T07:49:56.040Z] [STEP] STEP 3 — Uploading files to Mistral Files API
+[2026-05-28T07:49:57.792Z] [INFO] Mistral fileId1: a8802e3a-bbd3-4656-9dc4-1db64c8a58f6
+[2026-05-28T07:49:57.793Z] [INFO] Mistral fileId2: 93b74a4e-60a7-4179-898b-05c620242292
+[2026-05-28T07:49:57.794Z] [STEP] STEP 3 DONE — Both files uploaded to Mistral
+[2026-05-28T07:49:57.794Z] [STEP] STEP 4 — Waiting 1 s for Mistral file availability
+[2026-05-28T07:49:58.796Z] [INFO] fileId1 (a8802e3a-bbd3-4656-9dc4-1db64c8a58f6) ready
+[2026-05-28T07:49:58.797Z] [INFO] fileId2 (93b74a4e-60a7-4179-898b-05c620242292) ready
+[2026-05-28T07:49:58.797Z] [STEP] STEP 4 DONE — Files accessible
+[2026-05-28T07:49:58.797Z] [STEP] STEP 5 — Fetching signed URLs from Mistral
+[2026-05-28T07:49:59.235Z] [INFO] Signed URL 1 obtained
+[2026-05-28T07:49:59.235Z] [INFO] Signed URL 2 obtained
+[2026-05-28T07:49:59.236Z] [STEP] STEP 5 DONE — Signed URLs ready
+[2026-05-28T07:49:59.236Z] [STEP] STEP 6 — Running Mistral OCR on both files
+[2026-05-28T07:50:00.960Z] [INFO] OCR file1 complete — 2530 chars extracted
+[2026-05-28T07:50:01.393Z] [INFO] OCR file2 complete — 2823 chars extracted
+[2026-05-28T07:50:01.394Z] [STEP] STEP 6 DONE — OCR extraction complete for both files
+[2026-05-28T07:50:01.394Z] [STEP] STEP 7 — Deleting uploaded files from Mistral (cleanup)
+[2026-05-28T07:50:02.294Z] [INFO] Deleted Mistral file a8802e3a-bbd3-4656-9dc4-1db64c8a58f6
+[2026-05-28T07:50:02.295Z] [INFO] Deleted Mistral file 93b74a4e-60a7-4179-898b-05c620242292
+[2026-05-28T07:50:02.295Z] [STEP] STEP 7 DONE — Cleanup complete
+[2026-05-28T07:50:02.295Z] [INFO] === Session a6462ad7 completed successfully ===

@@ -1,0 +1,9 @@
+[2026-05-28T09:31:32.256Z] [INFO] === Translation session 69ba1472 started at 2026-05-28T09:31:32.256Z ===
+[2026-05-28T09:31:32.271Z] [INFO] file: "A7338.pdf" | 4.79 MB
+[2026-05-28T09:31:32.271Z] [INFO] target language: English
+[2026-05-28T09:31:32.271Z] [INFO] Uploading file to Gemini…
+[2026-05-28T09:31:36.793Z] [INFO] file URI: https://generativelanguage.googleapis.com/v1beta/files/j5mj84ipxz2f
+[2026-05-28T09:31:36.793Z] [INFO] Waiting for file to become ACTIVE…
+[2026-05-28T09:31:37.520Z] [INFO] file → ACTIVE
+[2026-05-28T09:31:37.520Z] [INFO] Running Gemini translation call…
+[2026-05-28T09:39:16.409Z] [ERROR] Fatal: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.

@@ -95,7 +95,7 @@ export default function App() {
     try {
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "x-api-key": process.env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", },
         body: JSON.stringify({
           model: "claude-sonnet-4-20250514",
           max_tokens: 1000,
@@ -117,6 +117,7 @@ export default function App() {
       const raw = (data.content || []).map(b => b.text || "").join("").replace(/```json|```/g, "").trim();
       setResult(JSON.parse(raw));
     } catch (e) {
+      console.log(e);
       setError("Error: " + e.message);
     }
     setLoading(false);

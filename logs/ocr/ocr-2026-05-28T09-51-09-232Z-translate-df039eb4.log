@@ -1,0 +1,22 @@
+[2026-05-28T09:51:09.233Z] [INFO] === Translation session df039eb4 started at 2026-05-28T09:51:09.233Z ===
+[2026-05-28T09:51:09.253Z] [INFO] file: "A7338.pdf" | 4.79 MB
+[2026-05-28T09:51:09.254Z] [INFO] target language: English
+[2026-05-28T09:51:09.254Z] [INFO] Uploading file to Gemini…
+[2026-05-28T09:51:13.048Z] [INFO] file URI: https://generativelanguage.googleapis.com/v1beta/files/4z6o9ptr31fq
+[2026-05-28T09:51:13.048Z] [INFO] Waiting for file to become ACTIVE…
+[2026-05-28T09:51:13.421Z] [INFO] file → ACTIVE
+[2026-05-28T09:51:13.421Z] [INFO] Running Gemini translation call…
+[2026-05-28T09:55:13.867Z] [INFO] Gemini call done in 240.4s
+[2026-05-28T09:55:13.872Z] [INFO] 
+────────────────────────────────────────────────────────────
+TRANSLATION RESULT
+────────────────────────────────────────────────────────────
+<div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 960px; margin: 0 auto; color: #1a1523;">
+
+  <!-- Header -->
+  <div style="background: linear-gradient(135deg, #6c47ff 0%, #8a6bff 100%); border-radius: 12px; padding: 24px 28px; margin-bottom: 24px; color: #fff;">
+    <div style="font-size: 11px; opacity: 0.7; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">Artwork Translation Report</div>
+    <div style="font-size: 20px; font-weight: 700;">A7338.pdf</div>
+…
+────────────────────────────────────────────────────────────
+[2026-05-28T09:55:13.873Z] [INFO] === Translation session df039eb4 complete ===

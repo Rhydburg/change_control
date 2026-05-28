@@ -1,0 +1,16 @@
+[2026-05-28T07:50:02.390Z] [INFO] === OCR Compare Session b2eb8489 started ===
+[2026-05-28T07:50:02.390Z] [INFO] Request received at 2026-05-28T07:50:02.390Z
+[2026-05-28T07:50:02.390Z] [STEP] STEP 1 — Parsing request body
+[2026-05-28T07:50:02.391Z] [INFO] text1 length: 2530 chars (Screenshot 2026-05-28 at 12.09.25 PM.png)
+[2026-05-28T07:50:02.391Z] [INFO] text2 length: 2823 chars (Screenshot 2026-05-28 at 12.09.14 PM.png)
+[2026-05-28T07:50:02.391Z] [STEP] STEP 1 DONE — Request body parsed
+[2026-05-28T07:50:02.391Z] [STEP] STEP 2 — Building Gemini comparison prompt
+[2026-05-28T07:50:02.391Z] [INFO] Prompt length: 8124 chars
+[2026-05-28T07:50:02.391Z] [STEP] STEP 2 DONE — Prompt built
+[2026-05-28T07:50:02.391Z] [STEP] STEP 3 — Calling Gemini 2.5 Pro for comparison
+[2026-05-28T07:50:44.911Z] [INFO] Gemini API call succeeded
+[2026-05-28T07:50:44.912Z] [STEP] STEP 3 DONE — Gemini response received
+[2026-05-28T07:50:44.912Z] [STEP] STEP 4 — Extracting HTML from Gemini response
+[2026-05-28T07:50:44.912Z] [INFO] Comparison HTML length: 4281 chars
+[2026-05-28T07:50:44.912Z] [STEP] STEP 4 DONE — Comparison HTML ready
+[2026-05-28T07:50:44.912Z] [INFO] === Session b2eb8489 completed successfully ===

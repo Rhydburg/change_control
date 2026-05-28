@@ -1,0 +1,248 @@
+[2026-05-28T06:39:43.630Z] [INFO] === Session 98081217 started at 2026-05-28T06:39:43.630Z ===
+[2026-05-28T06:39:43.677Z] [INFO] file1: "A7338.pdf" | 4.79 MB
+[2026-05-28T06:39:43.677Z] [INFO] file2: "A7441.pdf" | 5.85 MB
+[2026-05-28T06:39:43.677Z] [INFO] Uploading both files to Gemini (parallel)…
+[2026-05-28T06:39:50.317Z] [INFO] file1 URI: https://generativelanguage.googleapis.com/v1beta/files/1q1elp3tgv7s
+[2026-05-28T06:39:50.318Z] [INFO] file2 URI: https://generativelanguage.googleapis.com/v1beta/files/v7tcj6x0jttq
+[2026-05-28T06:39:50.318Z] [INFO] Waiting for files to become ACTIVE…
+[2026-05-28T06:39:50.883Z] [INFO] file1 → ACTIVE
+[2026-05-28T06:39:51.061Z] [INFO] file2 → ACTIVE
+[2026-05-28T06:39:51.062Z] [INFO] Running single Gemini call (extract + compare)…
+[2026-05-28T06:41:23.033Z] [INFO] Gemini call done in 92.0s
+[2026-05-28T06:41:23.035Z] [INFO] Confidence summary — HIGH: 16 | MEDIUM: 2 | LOW (manual): 0
+[2026-05-28T06:41:23.035Z] [INFO] Overall confidence score: 94% (HIGH: 16, MEDIUM: 2, LOW: 0)
+[2026-05-28T06:41:23.040Z] [INFO] 
+────────────────────────────────────────────────────────────
+COMPARISON RESULT
+────────────────────────────────────────────────────────────
+<!-- REASONING: Identified updates to Pantone colors, component specifications, product name branding (addition of "COMPRIMÉS"), composition phrasing, removal of manufacturer license number, address formatting, and a complete translation of the packing insert from French to English along with a size increase. -->
+
+
+<table style="width:100%; border-collapse:collapse; border:1px solid #000;">
+  <tr style="background:#f0f0f0;">
+    <td colspan="3" style="padding:10px; font-weight:bold; border:1px solid #000;">CL#### — DOC CODE — PRODUCT NAME <span style="float:right;padding:2px 10px;border-radius:5px;background:#d1fae5;color:#065f46;border:1px solid #059669;font-size:0.78rem;font-weight:700;">94% confidence</span></td>
+  </tr>
+  <tr style="background:#e8e8e8;">
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">Current / Previous State</td>
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">New / Revised State</td>
+    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:34%;">Scientific Rationale</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Carton</strong><br>Component: Carton</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Carton</strong><br>Component: Mono Carton</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Update to packaging component specification terminology.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Carton</strong><br>Pantone No.:<br>PANTONE 118-4-1 C<br>PANTONE 367 C</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Carton</strong><br>Pantone No.:<br>PANTONE P 139-8 C<br>PANTONE P 160-8 C</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Update to brand color specifications.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Carton</strong><br>Printing Overlay: UV Drip off & Brand name Embossed</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Carton</strong><br>Printing Overlay: Laminated</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Change in carton finish specification.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Front Panel & All Sides</strong><br>LCZIN</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Front Panel & All Sides</strong><br>LCZIN COMPRIMÉS</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Addition of dosage form to the prominent brand name display.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>Levocétirizine dichlorhydrate 5 mg</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>Dichlorhydrate de lévocétirizine 5 mg</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Rephrasing of active ingredient composition text.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>Colorant : Dioxyde de titane</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>Couleur: dioxyde de titane</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Minor terminology update for colorant.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>N° de Lic. du Fabricant : 14/UA/2006</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>N° de Lic. du Fabricant :</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Removal of specific manufacturing license number (likely to be overprinted).</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>C2 et 3 , S.I.E.L , Selaqui<br>Dehradun, Uttarakhand (Inde)</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>Selaqui, Dehradun, Uttarakhand, Inde</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Simplification of manufacturer address.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Foil</strong><br>Component: ALBL FOIL</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Foil</strong><br>Component: ALBL</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Update to packaging component specification terminology.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Foil</strong><br>Pantone No.:<br>90% PANTONE 2258 C<br>PANTONE 367 C</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Foil</strong><br>Pantone No.:<br>PANTONE P 139-8 C<br>PANTONE P 160-8 C</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Update to brand color specifications to match carton.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>LCZIN</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>LCZIN COMPRIMÉS</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Addition of dosage form to the prominent brand name display.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>Levocétirizine dichlorhydrate 5 mg</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>Dichlorhydrate de lévocétirizine 5 mg</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Rephrasing of active ingredient composition text.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>Colorant : Dioxyde de titane</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>Couleur: dioxyde de titane</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Minor terminology update for colorant.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>N° de Lic. du Fabricant : 14/UA/2006</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>N° de Lic. du Fabricant :</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Removal of specific manufacturing license number.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>C2 et 3 , S.I.E.L , Selaqui<br>Dehradun, Uttarakhand (Inde)</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>Selaqui, Dehradun, Uttarakhand, Inde</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Simplification of manufacturer address.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Packing Insert</strong><br>Dimension (LXW): 250x165mm</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Packing Insert</strong><br>Dimension (LXW): 250×250 mm</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Increase in packing insert width.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Packing Insert</strong><br>Printing Side: Both Side (Back)</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Packing Insert</strong><br>Printing Side: Both Side (Front)</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Update to printing side specification on page 3.</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[PACKING INSERT] Body</strong><br>Nom du médicament : Levocetirizine<br>LCZIN<br>Levocetirizine 5 mg comprimés<br>Description :<br>Il contient du dihydrochlorure de lévocétirizine comme principe actif.</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[PACKING INSERT] Body</strong><br>Levocetirizine Tablets 5 mg<br>LCZIN<br>INN:<br>Levocetirizine<br>Description:<br>It contain Levocetirizine Dihydrochloride as active ingredient.</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Complete translation of the packing insert text from French to English (excerpt shown).</td>
+  </tr>
+  <tr>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[PACKING INSERT] Body</strong><br>Fabriqué par:<br>Rhydburg Pharmaceuticals Ltd.<br>C2 et 3 , S.I.E.L , Selaqui<br>Dehradun, Uttarakhand (Inde)</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[PACKING INSERT] Body</strong><br>Manufactured by:<br>Rhydburg Pharmaceuticals Ltd.<br>Selaqui, Dehradun, Uttarakhand (India)</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;">Translation and simplification of manufacturer address.</td>
+  </tr>
+  <tr style="background:#fdf4ff;">
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong style="font-weight:bold;">[DESIGN / VISUAL]</strong><br>• PANTONE / COLOUR: The artwork uses a darker green (Pantone 118-4-1 C / 2258 C) and a lighter green (Pantone 367 C).<br>• GRAPHIC ELEMENTS: The carton back panel features a distinct rectangular box with the letters "NVZ" inside the overprint area.<br>• LAYOUT / ARRANGEMENT: The packing insert is narrower (165mm width).</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong style="font-weight:bold;">[DESIGN / VISUAL]</strong><br>• PANTONE / COLOUR: The artwork color scheme has shifted to a different set of greens (Pantone P 139-8 C and Pantone P 160-8 C).<br>• GRAPHIC ELEMENTS: The "NVZ" box on the carton back panel has been completely removed.<br>• FONT STYLE: The word "COMPRIMÉS" is newly added in a bold, smaller font next to the main "LCZIN" brand name on both carton and foil.<br>• LAYOUT / ARRANGEMENT: The packing insert is significantly wider (250mm width), altering the text layout.</td>
+    <td style="padding:8px; border:1px solid #000; vertical-align:top; font-style:italic; color:#6b21a8; font-size:0.8rem;">Design differences are AI-observed from visual inspection. Colour accuracy and subtle layout shifts may not be fully reliable — manual visual verification recommended.</td>
+  </tr>
+</table>
+
+<div style="margin-top:30px; border-top:3px solid #aaa; padding-top:20px; font-family:Arial,sans-serif; font-size:13px;">
+  <h3 style="margin:0 0 15px 0;">🌐 English Translation of Above Comparison Table</h3>
+  <p style="font-size:12px; color:#555; margin-bottom:10px;"><em>Non‑English text from the original table has been translated. All English text, codes, and formatting remain unchanged.</em></p>
+
+  <table style="width:100%; border-collapse:collapse; border:1px solid #000;">
+    <tr style="background:#f0f0f0;">
+      <td colspan="3" style="padding:10px; font-weight:bold; border:1px solid #000;">CL#### — DOC CODE — PRODUCT NAME {{CONFIDENCE_BADGE}}</td>
+    </tr>
+    <tr style="background:#e8e8e8;">
+      <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">Current / Previous State (translated)</td>
+      <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">New / Revised State (translated)</td>
+      <td style="padding:8px; border:1px solid #000; font-weight:bold; width:34%;">Scientific Rationale (unchanged)</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Carton</strong><br>Component: Carton</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Carton</strong><br>Component: Mono Carton</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Update to packaging component specification terminology.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Carton</strong><br>Pantone No.:<br>PANTONE 118-4-1 C<br>PANTONE 367 C</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Carton</strong><br>Pantone No.:<br>PANTONE P 139-8 C<br>PANTONE P 160-8 C</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Update to brand color specifications.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Carton</strong><br>Printing Overlay: UV Drip off & Brand name Embossed</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Carton</strong><br>Printing Overlay: Laminated</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Change in carton finish specification.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Front Panel & All Sides</strong><br>LCZIN</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Front Panel & All Sides</strong><br>LCZIN TABLETS</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Addition of dosage form to the prominent brand name display.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>Levocetirizine dihydrochloride 5 mg</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>Levocetirizine dihydrochloride 5 mg</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Rephrasing of active ingredient composition text.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>Colorant: Titanium dioxide</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>Color: titanium dioxide</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Minor terminology update for colorant.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>Mfg. Lic. No.: 14/UA/2006</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>Mfg. Lic. No.:</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Removal of specific manufacturing license number (likely to be overprinted).</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>C2 and 3, S.I.E.L, Selaqui<br>Dehradun, Uttarakhand (India)</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[CARTON] Back Panel</strong><br>Selaqui, Dehradun, Uttarakhand, India</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Simplification of manufacturer address.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Foil</strong><br>Component: ALBL FOIL</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Foil</strong><br>Component: ALBL</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Update to packaging component specification terminology.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Foil</strong><br>Pantone No.:<br>90% PANTONE 2258 C<br>PANTONE 367 C</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Foil</strong><br>Pantone No.:<br>PANTONE P 139-8 C<br>PANTONE P 160-8 C</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Update to brand color specifications to match carton.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>LCZIN</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>LCZIN TABLETS</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Addition of dosage form to the prominent brand name display.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>Levocetirizine dihydrochloride 5 mg</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>Levocetirizine dihydrochloride 5 mg</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Rephrasing of active ingredient composition text.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>Colorant: Titanium dioxide</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>Color: titanium dioxide</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Minor terminology update for colorant.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>Mfg. Lic. No.: 14/UA/2006</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>Mfg. Lic. No.:</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Removal of specific manufacturing license number.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>C2 and 3, S.I.E.L, Selaqui<br>Dehradun, Uttarakhand (India)</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[FOIL]</strong><br>Selaqui, Dehradun, Uttarakhand, India</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Simplification of manufacturer address.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Packing Insert</strong><br>Dimension (LXW): 250x165mm</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Packing Insert</strong><br>Dimension (LXW): 250×250 mm</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Increase in packing insert width.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Packing Insert</strong><br>Printing Side: Both Side (Back)</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[TECH TABLE] Packing Insert</strong><br>Printing Side: Both Side (Front)</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Update to printing side specification on page 3.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[PACKING INSERT] Body</strong><br>Name of the drug: Levocetirizine<br>LCZIN<br>Levocetirizine 5 mg tablets<br>Description:<br>It contains levocetirizine dihydrochloride as active ingredient.</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[PACKING INSERT] Body</strong><br>Levocetirizine Tablets 5 mg<br>LCZIN<br>INN:<br>Levocetirizine<br>Description:<br>It contain Levocetirizine Dihydrochloride as active ingredient.</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Complete translation of the packing insert text from French to English (excerpt shown).</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[PACKING INSERT] Body</strong><br>Manufactured by:<br>Rhydburg Pharmaceuticals Ltd.<br>C2 and 3, S.I.E.L, Selaqui<br>Dehradun, Uttarakhand (India)</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong>[PACKING INSERT] Body</strong><br>Manufactured by:<br>Rhydburg Pharmaceuticals Ltd.<br>Selaqui, Dehradun, Uttarakhand (India)</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;">Translation and simplification of manufacturer address.</td>
+    </tr>
+    <tr style="background:#fdf4ff;">
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong style="font-weight:bold;">[DESIGN / VISUAL]</strong><br>• PANTONE / COLOUR: The artwork uses a darker green (Pantone 118-4-1 C / 2258 C) and a lighter green (Pantone 367 C).<br>• GRAPHIC ELEMENTS: The carton back panel features a distinct rectangular box with the letters "NVZ" inside the overprint area.<br>• LAYOUT / ARRANGEMENT: The packing insert is narrower (165mm width).</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top;"><strong style="font-weight:bold;">[DESIGN / VISUAL]</strong><br>• PANTONE / COLOUR: The artwork color scheme has shifted to a different set of greens (Pantone P 139-8 C and Pantone P 160-8 C).<br>• GRAPHIC ELEMENTS: The "NVZ" box on the carton back panel has been completely removed.<br>• FONT STYLE: The word "TABLETS" is newly added in a bold, smaller font next to the main "LCZIN" brand name on both carton and foil.<br>• LAYOUT / ARRANGEMENT: The packing insert is significantly wider (250mm width), altering the text layout.</td>
+      <td style="padding:8px; border:1px solid #000; vertical-align:top; font-style:italic; color:#6b21a8; font-size:0.8rem;">Design differences are AI-observed from visual inspection. Colour accuracy and subtle layout shifts may not be fully reliable — manual visual verification recommended.</td>
+    </tr>
+  </table>
+</div>
+────────────────────────────────────────────────────────────
+[2026-05-28T06:41:23.040Z] [INFO] === Session 98081217 complete ===

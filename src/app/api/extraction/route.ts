@@ -139,6 +139,7 @@ EXTRACTION RULES (apply to BOTH files):
 4. ITEM CODES — when reading alphanumeric codes (e.g. ROPSP2218-01), the letter O and digit 0 look similar in pharmaceutical fonts. Read them as printed; do not substitute one for the other.
 5. UNREADABLE — if you genuinely cannot read a section, note it as [UNREADABLE: location] for that section.
 6. NOT PRESENT — if a section does not exist in that file, note it as [NOT PRESENT].
+7. NON-ENGLISH TEXT — If any text is in a language other than English, extract it verbatim (preserve all accents, diacritics, and script characters). Also note the language internally (do not output in main table) for translation purposes.
 
 ══════════════════════════════════════════
 STEP 2 — COMPARE AND OUTPUT DIFFERENCES
@@ -159,12 +160,13 @@ COMPARISON RULES:
 7. NO SUMMARIES EVER — even for long sections like PACKING INSERT BODY, quote only the specific lines that differ verbatim. Do NOT write a descriptive paragraph.
 8. ITEM CODES — if two codes differ only by O/0 substitution (e.g. R0PSP vs ROPSP), treat them as IDENTICAL — do NOT flag as a difference.
 9. NO INVENTION — do NOT use pharmaceutical knowledge to fill in or interpret any value.
+10. **GROUP BY COMPONENT** — For each unique component label (e.g., "[TECH TABLE] Carton", "[CARTON] Back Panel", "[FOIL]", "[PACKING INSERT] Body"), combine ALL differences that belong to that component into **ONE table row**. Do NOT create separate rows for each individual field change (e.g., component name change, Pantone change, printing overlay change all go under the same "[TECH TABLE] Carton" row). Inside the cell, list each difference on a new line or numbered. This applies to both the main table and the translated table.
 
 COMPONENT LABELS to use in output:
-  [TECH TABLE]         for spec tables
-  [CARTON]             for carton panels and sides
+  [TECH TABLE]         for spec tables (further qualify as Carton, Foil, Packing Insert)
+  [CARTON]             for carton panels and sides (further qualify as Front Panel, Back Panel, All Sides)
   [FOIL]               for foil/blister/label
-  [PACKING INSERT]     for packing insert
+  [PACKING INSERT]     for packing insert (Body or Tech Table)
 
 ══════════════════════════════════════════
 STEP 3 — OVERALL CONFIDENCE RATING
@@ -198,62 +200,97 @@ Else you observe NO design differences, output exactly: [NO DESIGN DIFFERENCES O
 Do NOT guess or invent. Only report what is clearly visible.
 
 ══════════════════════════════════════════
-OUTPUT FORMAT
+STEP 5 — TRANSLATED COMPARISON TABLE (ADDITIVE)
 ══════════════════════════════════════════
 
-Output exactly FOUR things in this order:
+After completing the main comparison table (Steps 2‑4), check whether ANY text in the "Current / Previous State" or "New / Revised State" columns of that table (including component labels, verbatim values, absent field notes, etc.) contains characters from a language other than English.
+
+- If NO non‑English text exists in either of those two columns → output nothing for this step.
+- If non‑English text exists → produce a SECOND HTML table that is an exact structural copy of the main comparison table, with the following rules:
+
+  1. **Preserve the exact same grouping** — one row per component, same as the main table.
+  2. **Translate only the non‑English portions** in the first two columns (Current/Previous State, New/Revised State).  
+     - Keep all English text, numbers, codes, component labels, and formatting (e.g., <strong>, <br>) unchanged.  
+     - Replace each non‑English word/phrase with its accurate English translation.  
+     - If a sentence is mixed English/non‑English, translate only the non‑English part and leave the English part as is.  
+  3. **Scientific Rationale column** (third column) remains identical to the main table — do not translate unless it also contains non‑English (rare). If it does, translate similarly.
+  4. **Design differences row**: translate any non‑English text in the design observations.
+  5. **Do NOT change the order, grouping, or numbering** of the differences. The translated table must mirror the main table row by row.
+
+  6. Output the translated table directly below the main table, separated by a clear horizontal rule and heading.
+
+  7. The main table (original, with verbatim non‑English) remains completely unchanged.
+
+OUTPUT FORMAT for the translated table (HTML) — same structure as main table, with column headers changed to indicate translation.
+
+══════════════════════════════════════════
+OUTPUT FORMAT (final, in order)
+══════════════════════════════════════════
+
+Output exactly:
 
 1. <!-- REASONING: one-line summary of all differences found -->
 
 2. <!-- CONFIDENCE_SUMMARY: {"high": N, "medium": N, "low": N} -->
 
-3. HTML comparison table (4 rows, inline styles only, no <style> tags).
-   NOTE: The first header row must contain EXACTLY the placeholder text {{CONFIDENCE_BADGE}} — the backend will replace it with the actual percentage.
+3. Main HTML comparison table (4 rows) — with **grouped differences** (one row per component).
 
-<table style="width:100%; border-collapse:collapse; border:1px solid #000; font-family:Arial,sans-serif; font-size:13px;">
-  <tr style="background:#f0f0f0;">
-    <td colspan="3" style="padding:10px; font-weight:bold; border:1px solid #000;">CL#### — DOC CODE — PRODUCT NAME {{CONFIDENCE_BADGE}}</td>
-  </tr>
-  <tr style="background:#e8e8e8;">
-    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">Current / Previous State</td>
-    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">New / Revised State</td>
-    <td style="padding:8px; border:1px solid #000; font-weight:bold; width:34%;">Scientific Rationale</td>
-  </tr>
-  <tr>
-    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
-      [text differences — current / previous values verbatim]
-    </td>
-    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
-      [text differences — new / revised values verbatim]
-    </td>
-    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
-      Regulatory rationale for all changes...
-    </td>
-  </tr>
-  <tr style="background:#fdf4ff;">
-    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
-      <strong style="font-weight:bold;">[DESIGN / VISUAL]</strong><br>
-      [design observations from FILE 1 — what was present before]
-    </td>
-    <td style="padding:8px; border:1px solid #000; vertical-align:top;">
-      <strong style="font-weight:bold;">[DESIGN / VISUAL]</strong><br>
-      [design observations from FILE 2 — what changed]
-    </td>
-    <td style="padding:8px; border:1px solid #000; vertical-align:top; font-style:italic; color:#6b21a8; font-size:0.8rem;">
-      Design differences are AI-observed from visual inspection. Colour accuracy and subtle layout shifts may not be fully reliable — manual visual verification recommended.
-    </td>
-  </tr>
-</table>
+   The table structure (exactly as in your original prompt, unchanged):
 
-FORMATTING RULES:
+   <table style="width:100%; border-collapse:collapse; border:1px solid #000; font-family:Arial,sans-serif; font-size:13px;">
+     <tr style="background:#f0f0f0;">
+       <td colspan="3" style="padding:10px; font-weight:bold; border:1px solid #000;">CL#### — DOC CODE — PRODUCT NAME {{CONFIDENCE_BADGE}}</td>
+     </tr>
+     <tr style="background:#e8e8e8;">
+       <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">Current / Previous State</td>
+       <td style="padding:8px; border:1px solid #000; font-weight:bold; width:33%;">New / Revised State</td>
+       <td style="padding:8px; border:1px solid #000; font-weight:bold; width:34%;">Scientific Rationale</td>
+     </tr>
+     <tr>
+       <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+         <strong>[COMPONENT LABEL]</strong><br>
+         1. Difference one verbatim<br>
+         2. Difference two verbatim<br>
+         (all differences for this component, numbered)
+       </td>
+       <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+         <strong>[COMPONENT LABEL]</strong><br>
+         1. Corresponding new value<br>
+         2. Corresponding new value
+       </td>
+       <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+         Regulatory rationale covering all changes in this row.
+       </td>
+     </tr>
+     <!-- Repeat for each component that has differences -->
+     <tr style="background:#fdf4ff;">
+       <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+         <strong style="font-weight:bold;">[DESIGN / VISUAL]</strong><br>
+         [design observations from FILE 1]
+       </td>
+       <td style="padding:8px; border:1px solid #000; vertical-align:top;">
+         <strong style="font-weight:bold;">[DESIGN / VISUAL]</strong><br>
+         [design observations from FILE 2]
+       </td>
+       <td style="padding:8px; border:1px solid #000; vertical-align:top; font-style:italic; color:#6b21a8; font-size:0.8rem;">
+         Design differences are AI-observed from visual inspection. Colour accuracy and subtle layout shifts may not be fully reliable — manual visual verification recommended.
+       </td>
+     </tr>
+   </table>
+
+4. (Conditional) Translated HTML comparison table — same row grouping as main table, with non‑English translated. Output only if non‑English exists.
+
+5. No extra content.
+
+FORMATTING RULES (unchanged):
 - ALL styling INLINE only. NO <style> tags.
 - Use <br> to separate items within a cell.
-- Number every difference: 1., 2., 3.
+- Number every difference within a component: 1., 2., 3.
 - Bold every component label: <strong style="font-weight:bold;">[COMPONENT]</strong>
-- Blank line between components: <br><br>
-- EXACTLY 4 ROWS in the table (header, column headers, text diffs, design diffs).
+- Blank line between components: <br><br> — but note: components are already in separate rows, so no need for extra blank lines between different components. Within a single cell, separate differences with <br> or numbered list.
+- EXACTLY 4 ROWS in the main table (header, column headers, one or more data rows for components, design row). The data rows count varies by number of components with differences — that is allowed.
 - NO markdown. Output raw HTML only.
-- Do NOT put {{CONFIDENCE_BADGE}} anywhere except the first header <td>.
+- Do NOT put {{CONFIDENCE_BADGE}} anywhere except the first header row of BOTH tables.
 
 Now read FILE 1 and FILE 2, then output the comparison.`.trim();
 }
